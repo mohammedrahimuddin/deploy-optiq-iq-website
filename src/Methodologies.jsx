@@ -1,181 +1,262 @@
-
-import React, { useState } from "react";
-import {
-  Target,
-  Users,
-  Workflow,
-  Lightbulb,
-  ClipboardCheck,
-  ShieldCheck,
-  RefreshCw,
-  MessageCircle,
-  Code2,
-  Cloud,
-  BriefcaseBusiness,
-  ArrowRight,
-  CheckCircle2,
-  Sparkles,
-  Layers,
-  Search,
-  Rocket,
-  ChevronDown,
-} from "lucide-react";
-
+import React from "react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import PageHero from "./components/PageHero";
 import "./Methodologies.css";
 
-const processSteps = [
-  {
-    number: "01",
-    title: "Discover",
-    subtitle: "Understanding your business",
-    description:
-      "We begin by learning about your business objectives, current challenges, technical requirements and expectations. This helps us understand the real problem before recommending a direction.",
-    icon: Search,
-  },
-  {
-    number: "02",
-    title: "Define",
-    subtitle: "Establishing the right direction",
-    description:
-      "We organize the requirements, identify priorities and define the scope of support needed. Together, we establish what success should look like.",
-    icon: Target,
-  },
-  {
-    number: "03",
-    title: "Plan",
-    subtitle: "Building a practical roadmap",
-    description:
-      "We identify the right people, technologies, resources and timelines. The plan is shaped around your project goals and business priorities.",
-    icon: ClipboardCheck,
-  },
-  {
-    number: "04",
-    title: "Execute",
-    subtitle: "Turning plans into action",
-    description:
-      "Our team coordinates the agreed activities, whether that involves technical talent, software development, technology implementation or project support.",
-    icon: Code2,
-  },
-  {
-    number: "05",
-    title: "Validate",
-    subtitle: "Reviewing quality and progress",
-    description:
-      "We review progress against agreed requirements, identify areas for improvement and maintain communication throughout the engagement.",
-    icon: ShieldCheck,
-  },
-  {
-    number: "06",
-    title: "Deliver & Improve",
-    subtitle: "Moving forward with confidence",
-    description:
-      "We support the next steps, gather feedback and identify opportunities to improve the solution, process or working relationship.",
-    icon: Rocket,
-  },
+const designProcess = [
+  ["Empathize", "Conduct user research to gather insightful information about end-users' needs and problems."],
+  ["Define", "Clearly define the problem based on insights gathered during the first phase."],
+  ["Ideate", "Brainstorm creative solutions and encourage divergent thinking to explore various possibilities."],
+  ["Prototype", "Develop a tangible or visual representation of the solution to test its functionality and effectiveness."],
+  ["Test", "Test the prototype with users to gather feedback and learn about its strengths and weaknesses."],
+  ["Iterate", "Based on feedback, iterate and refine the solution to enhance its effectiveness and alignment with user needs."],
 ];
 
-const workingModels = [
-  {
-    number: "01",
-    title: "Dedicated Team",
-    description:
-      "A team-oriented approach for businesses that need ongoing technical capabilities and coordinated project support.",
-    detail: "Ongoing collaboration",
-    icon: Users,
-  },
-  {
-    number: "02",
-    title: "IT Staffing",
-    description:
-      "Identify and connect with technical professionals whose skills align with your role and project requirements.",
-    detail: "The right technical talent",
-    icon: BriefcaseBusiness,
-  },
-  {
-    number: "03",
-    title: "Project-Based Engagement",
-    description:
-      "Work towards defined project objectives with an agreed scope, responsibilities and delivery expectations.",
-    detail: "Defined project goals",
-    icon: Layers,
-  },
-  {
-    number: "04",
-    title: "Technology Consulting",
-    description:
-      "Explore technology options, understand challenges and identify practical ways to support business objectives.",
-    detail: "Practical technology guidance",
-    icon: Lightbulb,
-  },
+const designPractices = [
+  ["User-centric focus", "Conduct user research to gather insightful information about end-users' needs and problems."],
+  ["Iterative development", "Develop a tangible or visual representation of the solution to test its functionality and effectiveness."],
+  ["Collaborative work environment", "Brainstorm creative solutions and encourage divergent thinking to explore various possibilities."],
+  ["Rapid prototyping", "Clearly define the problem based on insights gathered during the first phase."],
 ];
 
-const qualityPoints = [
-  {
-    title: "Requirement alignment",
-    description:
-      "Keep activities connected to agreed business and technical requirements.",
-    icon: Target,
-  },
-  {
-    title: "Clear communication",
-    description:
-      "Encourage regular discussions, feedback and transparent coordination.",
-    icon: MessageCircle,
-  },
-  {
-    title: "Review and validation",
-    description:
-      "Review work against expectations and identify areas for improvement.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Continuous improvement",
-    description:
-      "Use feedback and lessons learned to improve future activities.",
-    icon: RefreshCw,
-  },
+const agileProcess = [
+  ["Requirement gathering", "Collect and analyze project requirements, prioritizing them based on stakeholder value."],
+  ["Iteration planning", "Plan short development cycles with clear objectives for each phase."],
+  ["Development", "Develop features iteratively, encouraging regular collaboration and feedback."],
+  ["Testing and integration", "Implement continuous testing and integration to ensure module compatibility and stability."],
+  ["Review and adaptation", "Frequently assess project progress, adopting plans based on evaluations and feedback."],
+  ["Deployment and feedback", "Ensure incremental releases, incorporating feedback loops for continuous improvement."],
 ];
 
-const faqs = [
-  {
-    question: "Does Deploy Optiq IQ follow Agile methodology?",
-    answer:
-      "Our working approach can incorporate Agile-inspired practices such as iterative progress, regular communication and feedback, depending on the engagement requirements.",
-  },
-  {
-    question: "Can your process be customized for different projects?",
-    answer:
-      "Yes. We adapt our approach according to project scope, technical requirements, team structure and business priorities.",
-  },
-  {
-    question: "How do you understand project requirements?",
-    answer:
-      "We begin with discussions about your goals, challenges, expected outcomes and technical needs before identifying the appropriate direction.",
-  },
-  {
-    question: "How do you maintain communication?",
-    answer:
-      "We emphasize clear discussions, agreed responsibilities and regular progress reviews throughout the engagement.",
-  },
-  {
-    question: "Can you support both IT staffing and technology projects?",
-    answer:
-      "Yes. Our business focus includes IT staffing, technology solutions, software development, outsourcing and project support.",
-  },
-  {
-    question: "How can we get started?",
-    answer:
-      "Contact our team and share your requirements. We can discuss your objectives and explore a suitable engagement approach.",
-  },
+const agilePractices = [
+  ["Continuous integration and deployment", "Employ CI/CD pipelines for rapid and reliable releases."],
+  ["Feedback loops", "Establish regular feedback loops with stakeholders and users."],
+  ["Automated testing", "Implement automated testing when possible for faster, more reliable test execution."],
+  ["Test-driven development", "Adopt test-first development for robust and error-free code."],
+  ["Code modularity", "Ensure the codebase remains modular and maintainable."],
+  ["Code refactoring", "Regularly refactor code to improve its structure and readability."],
 ];
+
+const scrumProcess = [
+  ["Project backlog creation", "Identify and document the project requirements."],
+  ["Sprint planning", "Prioritize and select backlog items for the next sprint."],
+  ["Sprint", "Execute tasks with timeboxing (typically within 2–4 weeks)."],
+  ["Daily scrum", "Conduct daily team meetings to ensure alignment and discuss progress and roadblocks."],
+  ["Sprint review", "Evaluate the output and present it to stakeholders."],
+  ["Sprint retrospective", "Reflect on the process and make necessary adjustments for future sprints."],
+];
+
+const scrumPractices = [
+  ["Continuous Integration", "Merging and automatically testing code changes to maintain quality and consistency."],
+  ["Automated testing", "Implement automated testing when possible for faster, more reliable test execution."],
+  ["Modular design", "Build the software in manageable, incremental units."],
+  ["Regular reviews", "Conduct code and design reviews to encourage collaboration and knowledge sharing among team members."],
+  ["Definition of Done", "Clearly define what “done” means for each user story to ensure a shared understanding of completeness."],
+];
+
+const devopsProcess = [
+  ["Planning and collaboration", "Collaboratively plan and define project requirements."],
+  ["Code development", "Develop code emphasizing version control and collaboration."],
+  ["Continuous integration", "Integrate code changes regularly and automatically test them."],
+  ["Deployment", "Employ automated tools for seamless deployments."],
+  ["Monitoring and feedback", "Monitor system performance and gather feedback for improvements."],
+  ["Automation and optimization", "Continuously automate repetitive tasks and optimize processes."],
+];
+
+const devopsPractices = [
+  ["Infrastructure as code (IaC)", "Manage and provision infrastructure using code, enabling automation, version control, and consistency in deployment and management processes."],
+  ["Monitoring and logging", "Implement monitoring and logging to track system performance and issues."],
+  ["Continuous integration/continuous deployment (CI/CD)", "Automate the deployment pipeline to facilitate rapid releases."],
+];
+
+const leanProcess = [
+  ["Identify business value", "Determine the business value from the customer's perspective."],
+  ["Map value stream", "Map the process steps and identify wasteful activities."],
+  ["Create flow", "Establish a steady and efficient workflow."],
+  ["Establish pull", "Let customer demand dictate the workflow."],
+  ["Deliver fast", "Maintain efficiency and continuously improve processes."],
+];
+
+const leanPractices = [
+  ["Eliminate waste", "Focus on eliminating unnecessary steps and activities."],
+  ["Optimize the whole", "Focus on optimizing the entire process, not just individual components. Build high-quality, long-term solutions."],
+  ["Built-in QA", "Integrate quality assurance throughout the development process."],
+  ["Empower the team", "Encourage team members to take ownership and contribute to improvements. Build trust and rely on each other's expertise instead of micromanaging teams."],
+];
+
+const radProcess = [
+  ["Requirement identification", "Identify basic project requirements."],
+  ["Prototype development", "Develop initial prototypes to visualize functionalities."],
+  ["User evaluation", "Obtain user feedback on prototypes."],
+  ["Refinement", "Refine the application based on feedback."],
+  ["Iterative development", "Repeat the cycle until the product meets the desired standards."],
+  ["Final implementation", "Implement the final version of the application and launch it."],
+];
+
+const radPractices = [
+  ["Modular design", "Adopt a modular design approach for easy changes and adaptations."],
+  ["Flexible planning", "Makes it easier to pivot, and adapt to changing requirements."],
+  ["User-centric development", "Adjust development based on user research and insights."],
+  ["Automated testing and integration", "Implement automated testing and continuous integration for quality assurance."],
+];
+
+const prototypeProcess = [
+  ["Requirement identification", "Identify initial project requirements."],
+  ["Initial prototype development", "Develop a preliminary software version focusing only on the visual features."],
+  ["User evaluation", "Collect user feedback on the prototype."],
+  ["Refinement", "Refine the prototype based on user feedback."],
+  ["Iteration", "Repeat the process until the system meets the user's specifications."],
+  ["Final development", "Develop and refine the final software version based on the development gathered from the initial prototype."],
+];
+
+const prototypePractices = [
+  ["User involvement", "Actively engage users to gather relevant feedback."],
+  ["Iterative development", "Embrace iterative development to continuously improve the prototype."],
+  ["Flexible design", "Maintain a flexible design and modular approach to easily accommodate changes."],
+  ["Feedback integration", "Integrate feedback effectively to align the product with user expectations."],
+];
+
+function ProcessGrid({ items }) {
+  return (
+    <div className="method-ref-grid">
+      {items.map(([title, description], index) => (
+        <article className="method-ref-item" key={title}>
+          <span className="method-ref-number">{index + 1}.</span>
+          <div>
+            <h4>{title}</h4>
+            <p>{description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function BestPractices({ items }) {
+  return (
+    <div className="method-best-grid">
+      {items.map(([title, description]) => (
+        <article className="method-best-item" key={title}>
+          <CheckCircle2 size={17} aria-hidden="true" />
+          <div>
+            <h4>{title}</h4>
+            <p>{description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function InfinityDiagram({ leftLabel, rightLabel, stages }) {
+  return (
+    <div className="method-diagram method-infinity" role="img" aria-label={`${leftLabel} and ${rightLabel} continuous process diagram`}>
+      <svg viewBox="0 0 620 250" aria-hidden="true">
+        <path d="M310 125 C235 15 115 20 90 105 C65 190 170 245 250 155 L370 95 C450 5 555 45 535 145 C515 235 390 230 310 125 C235 15 115 20 90 105" fill="none" stroke="#ff633d" strokeWidth="48" strokeLinecap="butt"/>
+        <path d="M310 125 C235 15 115 20 90 105" fill="none" stroke="#ff633d" strokeWidth="48"/>
+        <path d="M90 105 C65 190 170 245 250 155" fill="none" stroke="#303943" strokeWidth="48"/>
+        <path d="M250 155 L370 95" fill="none" stroke="#16a982" strokeWidth="48"/>
+        <path d="M370 95 C450 5 555 45 535 145" fill="none" stroke="#f5a900" strokeWidth="48"/>
+        <path d="M535 145 C515 235 390 230 310 125" fill="none" stroke="#f04455" strokeWidth="48"/>
+        <path d="M250 155 L310 125 L370 95" fill="none" stroke="#2477dc" strokeWidth="35"/>
+      </svg>
+      <div className="method-diagram-center">
+        <strong>{leftLabel}</strong><span>{rightLabel}</span>
+      </div>
+      <div className="method-diagram-caption">{stages}</div>
+    </div>
+  );
+}
+
+function AgileDiagram() {
+  return (
+    <div className="method-diagram method-agile-diagram">
+      {[1, 2, 3].map((n) => (
+        <div className="agile-sprint" key={n}>
+          <div className="agile-cycle">
+            <span className="cycle-top">Test</span>
+            <span className="cycle-right">Review</span>
+            <span className="cycle-bottom">Deploy</span>
+            <span className="cycle-left">Develop</span>
+            <b>Sprint {n}</b>
+          </div>
+          <div className="agile-steps"><span>Plan</span><span>Launch</span></div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ScrumDiagram() {
+  return (
+    <div className="method-diagram method-scrum-diagram">
+      <div className="scrum-wheel"><span>30 - Day<br/>Sprint</span><small>Daily Scrum Meetings</small></div>
+      <div className="scrum-backlog"><span>Product Backlog</span><span>Sprint Backlog</span><span>Product Increment</span></div>
+    </div>
+  );
+}
+
+function LeanDiagram() {
+  return (
+    <div className="method-diagram method-lean-diagram">
+      <div className="lean-cycle">
+        <span className="lean-ideas">IDEAS</span>
+        <span className="lean-product">PRODUCT</span>
+        <b>Build</b><strong>Measure</strong><i>Learn</i>
+      </div>
+    </div>
+  );
+}
+
+function RadDiagram() {
+  return (
+    <div className="method-diagram method-rad-diagram">
+      <span className="rad-start">Analysis &amp;<br/>Quick design</span>
+      <div className="rad-wheel"><b>Prototype<br/>Cycles</b><span>Develop</span><span>Build</span><span>Refine</span></div>
+      <span className="rad-end">Test&nbsp;&nbsp; Deploy</span>
+    </div>
+  );
+}
+
+
+function MethodDiagram({ src, alt, className = "" }) {
+  return (
+    <div className={`method-diagram method-image-diagram ${className}`}>
+      <img src={src} alt={alt} loading="lazy" />
+    </div>
+  );
+}
+
+function MethodSection({ id, title, description, diagram, process, practices, intro }) {
+  return (
+    <section className="methodology-block" id={id}>
+      <div className="method-container">
+        <div className="methodology-intro">
+          <h2>{title}</h2>
+          {description && <p>{description}</p>}
+          {intro && <p>{intro}</p>}
+        </div>
+        {diagram}
+        {process && (
+          <div className="method-subsection">
+            <h3>Our Process</h3>
+            <ProcessGrid items={process}/>
+          </div>
+        )}
+        {practices && (
+          <div className="method-subsection method-practices">
+            <h3>Best Practices We Implement</h3>
+            <BestPractices items={practices}/>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 function Methodologies() {
-  const [activeFaq, setActiveFaq] = useState(-1);
-
   return (
     <main className="method-page">
-      {/* HERO */}
       <PageHero
         tag="OUR DELIVERY APPROACH"
         title="A clear approach. "
@@ -185,455 +266,84 @@ function Methodologies() {
         primaryText="Let's discuss your needs"
         secondaryText="Explore our process"
         primaryLink="/contact"
-        secondaryLink="#method-process"
+        secondaryLink="#design-thinking"
         proof="Clear priorities. Thoughtful execution. Shared progress."
       />
 
-      {/* 01 - PHILOSOPHY */}
-      <section className="method-philosophy">
-        <div className="method-container method-philosophy-grid">
-          <div className="method-section-label">
-            <span className="method-eyebrow">OUR PHILOSOPHY</span>
+      <MethodSection
+        id="design-thinking"
+        title="Design Thinking"
+        description="Design thinking is a human-centric approach to innovation and problem-solving. It encourages empathy, ideation, and experimentation to create user-centered solutions. Everything we do follows this guiding principle."
+        intro="Here are some of the ways we help our healthcare clients."
+        diagram={<MethodDiagram src="public/images/methodologies/design-thinking-diagram.png" alt="Design Thinking infinity process diagram" />}
+        process={designProcess}
+        practices={designPractices}
+      />
 
-            <div className="method-orbit-art">
-              <div className="method-orbit orbit-a" />
-              <div className="method-orbit orbit-b" />
-              <div className="method-orbit orbit-c" />
+      <MethodSection
+        id="agile"
+        title="Agile"
+        description="Agile is a set of principles for software development. It prioritizes customer satisfaction through continuous improvement and iterative progress."
+        intro="It is ideally utilized in environments where product requirements are expected to change and evolve over time. Agile is standard practice for most of our projects."
+        diagram={<MethodDiagram src="public/images/methodologies/agile-diagram.png" alt="Agile three sprint cycle diagram" />}
+        process={agileProcess}
+        practices={agilePractices}
+      />
 
-              <div className="method-orbit-center">
-                <Workflow size={42} />
-              </div>
+      <MethodSection
+        id="scrum"
+        title="Scrum"
+        description="Scrum is a flexible and iterative Agile framework that's ideal for managing complex software and product development using incremental progress through sprints. It is best suited to projects where requirements might change rapidly and there is a need for frequent adaptations. All of our teams are led by a certified Scrum Master and Product Owner."
+        diagram={<MethodDiagram src="public/images/methodologies/scrum-diagram.png" alt="Scrum 30-day sprint diagram" />}
+        process={scrumProcess}
+        practices={scrumPractices}
+      />
 
-              <span className="method-orbit-icon orbit-icon-one">
-                <Target size={22} />
-              </span>
-              <span className="method-orbit-icon orbit-icon-two">
-                <Users size={22} />
-              </span>
-              <span className="method-orbit-icon orbit-icon-three">
-                <Code2 size={22} />
-              </span>
-              <span className="method-orbit-icon orbit-icon-four">
-                <Cloud size={22} />
-              </span>
-            </div>
+      <MethodSection
+        id="devops"
+        title="DevOps"
+        description="DevOps is an “infinite-loop” methodology that integrates software development (Dev) and IT operations (Ops) to enhance collaboration and productivity. It's used in projects where rapid, continuous delivery is a priority."
+        diagram={<MethodDiagram src="public/images/methodologies/devops-diagram.png" alt="DevOps development and operations infinity diagram" />}
+        process={devopsProcess}
+        practices={devopsPractices}
+      />
 
-            <span className="method-side-caption">
-              PEOPLE · TECHNOLOGY · PROGRESS
-            </span>
+      <MethodSection
+        id="lean"
+        title="Lean"
+        description="Lean software development focuses on delivering value to the customer by optimizing resources and eliminating waste. This approach is ideal for projects with well-defined value streams and a strong focus on efficiency."
+        diagram={<MethodDiagram src="public/images/methodologies/lean-diagram.png" alt="Lean build measure learn process diagram" />}
+        process={leanProcess}
+        practices={leanPractices}
+      />
+
+      <MethodSection
+        id="rad"
+        title="Rapid Application Development (RAD)"
+        description="Rapid Application Development (RAD) facilitates swift software development through iterative prototypes and user feedback, making it an excellent choice for projects with undefined or rapidly changing requirements."
+        diagram={<MethodDiagram src="public/images/methodologies/rad-diagram.png" alt="Rapid Application Development prototype cycle diagram" />}
+        process={radProcess}
+        practices={radPractices}
+      />
+
+      <MethodSection
+        id="prototype-methodology"
+        title="Prototype Methodology"
+        description="In the prototype methodology, a preliminary version of the software is developed to gather user feedback and clarify requirements, which then guides the development of the final product."
+        process={prototypeProcess}
+        practices={prototypePractices}
+      />
+
+      <section className="methodology-final-cta">
+        <div className="method-container methodology-cta-inner">
+          <div>
+            <span className="method-cta-eyebrow">LET'S BUILD SOMETHING BETTER</span>
+            <h2>Want to accelerate software development at your company?</h2>
+            <p>See how we can help.</p>
+            <a href="/contact">Schedule a Call <ArrowRight size={17}/></a>
           </div>
-
-          <div className="method-philosophy-content">
-            <h2>
-              A smarter way to move from <em>ideas to impact.</em>
-            </h2>
-
-            <h3>
-              Every successful project begins with a clear understanding of
-              what needs to be achieved.
-            </h3>
-
-            <p>
-              At Deploy Optiq IQ, we follow a structured yet flexible approach
-              that brings business requirements, technical expertise and the
-              right people together.
-            </p>
-
-            <p>
-              From identifying the right talent to planning technology
-              solutions and supporting project execution, we focus on clarity,
-              collaboration and meaningful progress.
-            </p>
-
-            <a href="/contact" className="method-text-link">
-              Start a conversation <ArrowRight size={18} />
-            </a>
-          </div>
-        </div>
-
-        <div className="method-container method-principles">
-          <article className="method-principle">
-            <span className="method-principle-icon">
-              <Target size={24} />
-            </span>
-            <span className="method-card-number">01</span>
-            <h3>Clarity first</h3>
-            <p>
-              Understand the business before recommending a solution.
-            </p>
-          </article>
-
-          <article className="method-principle">
-            <span className="method-principle-icon">
-              <Users size={24} />
-            </span>
-            <span className="method-card-number">02</span>
-            <h3>People focused</h3>
-            <p>
-              Connect the right talent with the right requirements.
-            </p>
-          </article>
-
-          <article className="method-principle">
-            <span className="method-principle-icon">
-              <Rocket size={24} />
-            </span>
-            <span className="method-card-number">03</span>
-            <h3>Outcome driven</h3>
-            <p>
-              Keep every activity aligned with business goals.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      {/* 02 - PROCESS TIMELINE */}
-      <section className="method-process" id="method-process">
-        <div className="method-container">
-          <div className="method-heading method-heading-center">
-            <span className="method-eyebrow"> OUR PROCESS</span>
-            <h2>
-              From the first conversation
-              <br />
-              to the <em>final outcome.</em>
-            </h2>
-            <p>
-              A structured process helps us understand requirements, identify
-              the right approach, coordinate resources and support successful
-              execution.
-            </p>
-          </div>
-
-          <div className="method-timeline">
-            <div className="method-timeline-line" />
-
-            {processSteps.map((step, index) => {
-              const Icon = step.icon;
-
-              return (
-                <article
-                  className={`method-step ${
-                    index % 2 === 0 ? "step-left" : "step-right"
-                  }`}
-                  key={step.number}
-                >
-                  <div className="method-step-marker">
-                    <span>{step.number}</span>
-                  </div>
-
-                  <div className="method-step-card">
-                    <div className="method-step-top">
-                      <span className="method-step-icon">
-                        <Icon size={24} />
-                      </span>
-                      <span className="method-step-index">
-                        STAGE {step.number}
-                      </span>
-                    </div>
-
-                    <h3>{step.title}</h3>
-                    <h4>{step.subtitle}</h4>
-                    <p>{step.description}</p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="method-process-note">
-            <CheckCircle2 size={20} />
-            <span>
-              A flexible process shaped around your business and project needs.
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* 03 - WORKING MODELS */}
-      <section className="method-models">
-        <div className="method-container">
-          <div className="method-models-heading">
-            <div>
-              <span className="method-eyebrow"> WORKING MODELS</span>
-              <h2>
-                Flexible ways to
-                <br />
-                <em>work together.</em>
-              </h2>
-            </div>
-
-            <p>
-              Every business has different needs. Our engagement approach can
-              be shaped around your project scope, team structure and
-              technology requirements.
-            </p>
-          </div>
-
-          <div className="method-model-grid">
-            {workingModels.map((model) => {
-              const Icon = model.icon;
-
-              return (
-                <article className="method-model-card" key={model.number}>
-                  <div className="method-model-top">
-                    <span className="method-model-icon">
-                      <Icon size={25} />
-                    </span>
-                    <span>{model.number}</span>
-                  </div>
-
-                  <h3>{model.title}</h3>
-                  <p>{model.description}</p>
-
-                  <div className="method-model-footer">
-                    <span>{model.detail}</span>
-                    <ArrowRight size={19} />
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 04 - QUALITY */}
-      <section className="method-quality">
-        <div className="method-container method-quality-grid">
-          <div className="method-quality-intro">
-            <span className="method-eyebrow"> QUALITY & IMPROVEMENT</span>
-            <h2>
-              Quality is part of
-              <em> every stage.</em>
-            </h2>
-            <p>
-              We believe quality should not be treated as a final checkpoint.
-              It should be considered throughout the engagement, from
-              understanding requirements to reviewing outcomes.
-            </p>
-
-            <div className="method-quality-badge">
-              <Sparkles size={19} />
-              <span>Built into the process</span>
-            </div>
-          </div>
-
-          <div className="method-quality-list">
-            {qualityPoints.map((point, index) => {
-              const Icon = point.icon;
-
-              return (
-                <article className="method-quality-item" key={point.title}>
-                  <span className="method-quality-number">
-                    0{index + 1}
-                  </span>
-
-                  <span className="method-quality-icon">
-                    <Icon size={22} />
-                  </span>
-
-                  <div>
-                    <h3>{point.title}</h3>
-                    <p>{point.description}</p>
-                  </div>
-
-                  <CheckCircle2 className="method-quality-check" size={20} />
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 05 - PEOPLE AND TECHNOLOGY */}
-      <section className="method-network">
-        <div className="method-container method-network-grid">
-          <div className="method-network-visual">
-            <div className="network-ring network-ring-one" />
-            <div className="network-ring network-ring-two" />
-            <div className="network-ring network-ring-three" />
-
-            <div className="network-core">
-              <Workflow size={42} />
-              <span>ONE SHARED DIRECTION</span>
-            </div>
-
-            <div className="network-node network-node-one">
-              <Users size={25} />
-              <span>People</span>
-            </div>
-            <div className="network-node network-node-two">
-              <Code2 size={25} />
-              <span>Technology</span>
-            </div>
-            <div className="network-node network-node-three">
-              <Layers size={25} />
-              <span>Processes</span>
-            </div>
-            <div className="network-node network-node-four">
-              <MessageCircle size={25} />
-              <span>Collaboration</span>
-            </div>
-          </div>
-
-          <div className="method-network-content">
-            <span className="method-eyebrow">
-              05 / PEOPLE & TECHNOLOGY
-            </span>
-
-            <h2>
-              The right people.
-              <br />
-              The right technology.
-              <em> One shared direction.</em>
-            </h2>
-
-            <p>
-              Technology alone does not create successful outcomes. The right
-              expertise, thoughtful planning and effective collaboration are
-              equally important.
-            </p>
-
-            <div className="method-network-points">
-              <p>
-                <CheckCircle2 size={18} />
-                <span>
-                  <strong>People</strong> — Technical talent and relevant
-                  expertise.
-                </span>
-              </p>
-              <p>
-                <CheckCircle2 size={18} />
-                <span>
-                  <strong>Technology</strong> — Solutions and tools aligned
-                  with business needs.
-                </span>
-              </p>
-              <p>
-                <CheckCircle2 size={18} />
-                <span>
-                  <strong>Processes</strong> — Structured activities and
-                  clear responsibilities.
-                </span>
-              </p>
-              <p>
-                <CheckCircle2 size={18} />
-                <span>
-                  <strong>Collaboration</strong> — Communication and shared
-                  decision-making.
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 06 - WHY OUR APPROACH */}
-      <section className="method-difference">
-        <div className="method-container">
-          <div className="method-heading method-heading-center">
-            <span className="method-eyebrow"> THE DIFFERENCE WE BRING</span>
-            <h2>
-              Built around your business,
-              <br />
-              <em>not a one-size-fits-all process.</em>
-            </h2>
-            <p>
-              Our approach adapts to different business requirements while
-              keeping clarity, accountability and collaboration in focus.
-            </p>
-          </div>
-
-          <div className="method-difference-grid">
-            {[
-              ["01", "Business understanding", "Start with your objectives and challenges."],
-              ["02", "Flexibility", "Adapt to the engagement requirements."],
-              ["03", "Relevant expertise", "Align skills with project needs."],
-              ["04", "Communication", "Maintain clear and regular coordination."],
-              ["05", "Quality", "Review progress and expectations."],
-              ["06", "Long-term value", "Identify opportunities for improvement."],
-            ].map(([number, title, description]) => (
-              <article className="method-difference-card" key={number}>
-                <span>{number}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </div>
-                <ArrowRight size={19} />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 07 - FAQ */}
-      <section className="method-faq">
-        <div className="method-container method-faq-grid">
-          <div className="method-faq-intro">
-            <span className="method-eyebrow"> GOOD TO KNOW</span>
-            <h2>
-              Questions about
-              <em> how we work?</em>
-            </h2>
-            <p>
-              Here are a few useful starting points when exploring our
-              methodology and working approach.
-            </p>
-            <a href="/contact" className="method-text-link">
-              Talk to our team <ArrowRight size={18} />
-            </a>
-          </div>
-
-          <div className="method-faq-list">
-            {faqs.map((faq, index) => (
-              <article
-                className={`method-faq-item ${
-                  activeFaq === index ? "faq-active" : ""
-                }`}
-                key={faq.question}
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setActiveFaq(activeFaq === index ? -1 : index)
-                  }
-                  aria-expanded={activeFaq === index}
-                >
-                  <span>{faq.question}</span>
-                  <ChevronDown size={20} />
-                </button>
-
-                <div className="method-faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 08 - FINAL CTA */}
-      <section className="method-final-cta">
-        <div className="method-container method-final-content">
-          <span className="method-eyebrow">LET'S WORK TOGETHER</span>
-
-          <h2>
-            Let's build the
-            <br />
-            <em>right approach together.</em>
-          </h2>
-
-          <p>
-            Have a project in mind or looking for the right technical talent?
-            Start a conversation with Deploy Optiq IQ and explore the next step.
-          </p>
-
-          <a href="/contact" className="method-final-button">
-            Let's discuss your requirements
-            <ArrowRight size={19} />
-          </a>
-
-          <div className="method-final-decoration">
-            <Workflow size={150} />
+          <div className="method-cta-art">
+            <img src="public/images/methodologies/methodology-cta-photo.png" alt="Software developers collaborating at a computer" loading="lazy" />
           </div>
         </div>
       </section>

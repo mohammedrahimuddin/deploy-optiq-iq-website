@@ -1116,4 +1116,159 @@ article h3 {
   }
 }
 
+/* ==========================================
+   DEPLOY OPTIQ IQ — PREMIUM CHARCOAL FOOTER
+========================================== */
+
+.premium-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  color: #ffffff !important;
+
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      #59636d55 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 5% 100%,
+      #343b4140 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      112deg,
+      #17191b 0%,
+      #252a2e 52%,
+      #343b41 100%
+    ) !important;
+
+  border-top: 1px solid #ffffff16;
+}
+
+/* Subtle geometric background */
+.premium-footer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -100px;
+  right: -80px;
+  width: 55%;
+  height: 130%;
+  opacity: .08;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      transparent 49%,
+      #dce3e8 50%,
+      #dce3e8 99%,
+      transparent 100%
+    );
+
+  background-size: 180px 180px;
+}
+
+/* Footer brand */
+.premium-footer .footer-brand {
+  color: #ffffff !important;
+}
+
+.premium-footer .footer-brand img {
+  border: 1px solid #ffffff50;
+  box-shadow: 0 8px 25px #0004;
+}
+
+.premium-footer .footer-description {
+  color: #c4cdd3 !important;
+}
+
+/* Footer headings */
+.premium-footer .footer-column h4 {
+  color: #ffffff !important;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.premium-footer .footer-column h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 35px;
+  height: 2px;
+  border-radius: 5px;
+  background: #ff633d;
+}
+
+/* Footer links */
+.premium-footer .footer-column a {
+  color: #bfc8ce !important;
+  transition: color .25s ease, transform .25s ease;
+}
+
+.premium-footer .footer-column a:hover {
+  color: #ff633d !important;
+  transform: translateX(4px);
+}
+
+/* Contact details */
+.premium-footer .footer-contact-item {
+  color: #13c9a5;
+}
+
+.premium-footer .footer-contact-item strong {
+  color: #ffffff;
+}
+
+.premium-footer .footer-contact-item p,
+.premium-footer .footer-contact-item a {
+  color: #bfc8ce !important;
+}
+
+.premium-footer .footer-contact-item a:hover {
+  color: #ff633d !important;
+}
+
+/* Social icons */
+.premium-footer .footer-socials a {
+  color: #13c9a5 !important;
+  border: 1px solid #13c9a550;
+  background: #13c9a50b;
+  transition: all .3s ease;
+}
+
+.premium-footer .footer-socials a:hover {
+  color: #17191b !important;
+  background: #13c9a5;
+  border-color: #13c9a5;
+  transform: translateY(-4px);
+}
+
+/* Footer separators */
+.premium-footer hr {
+  border: 0;
+  border-top: 1px solid #ffffff20;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .premium-footer {
+    background:
+      linear-gradient(
+        145deg,
+        #17191b,
+        #252a2e 65%,
+        #343b41
+      ) !important;
+  }
+
+  .premium-footer::before {
+    opacity: .05;
+  }
+}
+
 
