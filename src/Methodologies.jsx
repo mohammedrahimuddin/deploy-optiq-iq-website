@@ -275,7 +275,7 @@ function Methodologies() {
         title="Design Thinking"
         description="Design thinking is a human-centric approach to innovation and problem-solving. It encourages empathy, ideation, and experimentation to create user-centered solutions. Everything we do follows this guiding principle."
         intro="Here are some of the ways we help our healthcare clients."
-        diagram={<MethodDiagram src="public/images/Methodologies/design-thinking-diagram02.png" alt="Design Thinking infinity process diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/design-thinking-diagram02.png" alt="Design Thinking infinity process diagram" />}
         process={designProcess}
         practices={designPractices}
       />
@@ -285,7 +285,7 @@ function Methodologies() {
         title="Agile"
         description="Agile is a set of principles for software development. It prioritizes customer satisfaction through continuous improvement and iterative progress."
         intro="It is ideally utilized in environments where product requirements are expected to change and evolve over time. Agile is standard practice for most of our projects."
-        diagram={<MethodDiagram src="public/images/Methodologies/agile-diagram02.png" alt="Agile three sprint cycle diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/agile-diagram02.png" alt="Agile three sprint cycle diagram" />}
         process={agileProcess}
         practices={agilePractices}
       />
@@ -294,7 +294,7 @@ function Methodologies() {
         id="scrum"
         title="Scrum"
         description="Scrum is a flexible and iterative Agile framework that's ideal for managing complex software and product development using incremental progress through sprints. It is best suited to projects where requirements might change rapidly and there is a need for frequent adaptations. All of our teams are led by a certified Scrum Master and Product Owner."
-        diagram={<MethodDiagram src="public/images/Methodologies/scrum-diagram01.png" alt="Scrum 30-day sprint diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/scrum-diagram01.png" alt="Scrum 30-day sprint diagram" />}
         process={scrumProcess}
         practices={scrumPractices}
       />
@@ -303,7 +303,7 @@ function Methodologies() {
         id="devops"
         title="DevOps"
         description="DevOps is an “infinite-loop” methodology that integrates software development (Dev) and IT operations (Ops) to enhance collaboration and productivity. It's used in projects where rapid, continuous delivery is a priority."
-        diagram={<MethodDiagram src="public/images/Methodologies/devops-diagram.png" alt="DevOps development and operations infinity diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/devops-diagram.png" alt="DevOps development and operations infinity diagram" />}
         process={devopsProcess}
         practices={devopsPractices}
       />
@@ -312,7 +312,7 @@ function Methodologies() {
         id="lean"
         title="Lean"
         description="Lean software development focuses on delivering value to the customer by optimizing resources and eliminating waste. This approach is ideal for projects with well-defined value streams and a strong focus on efficiency."
-        diagram={<MethodDiagram src="public/images/Methodologies/lean-diagram.png" alt="Lean build measure learn process diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/lean-diagram.png" alt="Lean build measure learn process diagram" />}
         process={leanProcess}
         practices={leanPractices}
       />
@@ -321,7 +321,7 @@ function Methodologies() {
         id="rad"
         title="Rapid Application Development (RAD)"
         description="Rapid Application Development (RAD) facilitates swift software development through iterative prototypes and user feedback, making it an excellent choice for projects with undefined or rapidly changing requirements."
-        diagram={<MethodDiagram src="public/images/Methodologies/rad-diagram.png" alt="Rapid Application Development prototype cycle diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/rad-diagram.png" alt="Rapid Application Development prototype cycle diagram" />}
         process={radProcess}
         practices={radPractices}
       />
@@ -330,7 +330,7 @@ function Methodologies() {
         id="prototype-methodology"
         title="Prototype Methodology"
         description="In the prototype methodology, a preliminary version of the software is developed to gather user feedback and clarify requirements, which then guides the development of the final product."
-        diagram={<MethodDiagram src="public/images/Methodologies/proto.png" alt="Rapid Application Development prototype cycle diagram" />}
+        diagram={<MethodDiagram src="/images/Methodologies/proto.png" alt="Rapid Application Development prototype cycle diagram" />}
         process={prototypeProcess}
         practices={prototypePractices}
       />
@@ -344,7 +344,7 @@ function Methodologies() {
             <a href="/contact">Schedule a Call <ArrowRight size={17}/></a>
           </div>
           <div className="method-cta-art">
-            <img src="public/images/Methodologies/methodology-cta-photo.png" alt="Software developers collaborating at a computer" loading="lazy" />
+            <img src="/images/Methodologies/methodology-cta-photo.png" alt="Software developers collaborating at a computer" loading="lazy" />
           </div>
         </div>
       </section>
