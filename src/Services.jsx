@@ -1,14 +1,48 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  Users, Globe, RefreshCw, Handshake, Code2, BrainCircuit,
-  Rocket, Server, ShieldCheck, Palette, Cloud, Database,
-  Smartphone, ArrowRight, ChevronRight, CheckCircle2,
-  Target, BarChart3, MessageCircle, Workflow, Cpu, Sparkles,
-  GitBranch, Phone, TrendingUp, LockKeyhole
+  Users,
+  Globe,
+  RefreshCw,
+  Handshake,
+  Code2,
+  BrainCircuit,
+  Rocket,
+  Server,
+  Palette,
+  ArrowRight,
+  ChevronRight,
+  CheckCircle2,
+  Target,
+  BarChart3,
+  Eye,
+  GitBranch,
+  ShieldCheck,
+  Workflow,
+  Sparkles,
+  LockKeyhole,
+  Phone,
+  TrendingUp
 } from "lucide-react";
+
 import PageHero from "./components/PageHero";
 import "./Services.css";
+
+/* =========================================
+   SEO CONFIGURATION
+========================================= */
+
+const SEO_TITLE =
+  "Software Development & IT Staffing Services | Deploy Optiq IQ";
+
+const SEO_DESCRIPTION =
+  "Explore software development, IT staffing, AI and machine learning, cloud infrastructure, UI/UX design and technology solutions with Deploy Optiq IQ.";
+
+const SITE_URL = "https://deployoptiqiq.com";
+
+/* =========================================
+   SERVICE CATEGORIES
+========================================= */
 
 const serviceCategories = [
   {
@@ -18,10 +52,22 @@ const serviceCategories = [
     description:
       "Turn your ideas into practical digital products. We help plan and develop applications that fit your users, workflows and business requirements.",
     items: [
-      ["Web App", "Build responsive web applications for your business processes, customer experiences and digital services."],
-      ["Mobile App", "Create mobile experiences for customers, employees and connected business operations."],
-      ["Enterprise Apps", "Connect teams, workflows and business information through applications designed around your organization."],
-      ["Cloud Apps", "Explore cloud-ready application approaches that support flexibility, access and evolving requirements."]
+      [
+        "Web App Development",
+        "Build responsive web applications for business processes, customer experiences and digital services."
+      ],
+      [
+        "Mobile App Development",
+        "Create mobile experiences for customers, employees and connected business operations."
+      ],
+      [
+        "Enterprise Applications",
+        "Connect teams, workflows and business information through applications designed around your organization."
+      ],
+      [
+        "Cloud Applications",
+        "Explore cloud-ready application approaches that support flexibility, access and evolving requirements."
+      ]
     ]
   },
   {
@@ -29,25 +75,49 @@ const serviceCategories = [
     icon: BrainCircuit,
     title: "Artificial Intelligence",
     description:
-      "Build AI-enabled solutions that help solve business problems in production. Explore intelligent capabilities aligned with your data, infrastructure and business objectives.",
+      "Build AI-enabled solutions that help solve business problems. Explore intelligent capabilities aligned with your data, infrastructure and business objectives.",
     items: [
-      ["AI/ML Development", "Build custom machine-learning models for prediction, classification, analysis and other business use cases."],
-      ["Agentic AI", "Explore AI agents that can assist with defined tasks, workflows and information-based processes."],
-      ["Generative AI", "Integrate generative AI into products and internal tools to support content, knowledge and productivity."],
-      ["AI Transformation", "Identify practical opportunities to introduce AI into suitable business workflows."]
+      [
+        "AI/ML Development",
+        "Build machine-learning models for prediction, classification, analysis and business use cases."
+      ],
+      [
+        "Agentic AI",
+        "Explore AI agents that can assist with defined tasks, workflows and information-based processes."
+      ],
+      [
+        "Generative AI",
+        "Integrate generative AI into products and internal tools to support content, knowledge and productivity."
+      ],
+      [
+        "AI Transformation",
+        "Identify practical opportunities to introduce AI into suitable business workflows."
+      ]
     ]
   },
   {
     name: "Advanced Tech",
     icon: Rocket,
-    title: "Advanced Tech",
+    title: "Advanced Technology Solutions",
     description:
-      "Explore technologies beyond conventional software. We can discuss specialist technology capabilities for new products, operations and business opportunities.",
+      "Explore technologies beyond conventional software. Discuss specialist technology capabilities for new products, operations and business opportunities.",
     items: [
-      ["Augmented Reality", "Explore digital experiences that connect virtual information with real-world environments."],
-      ["Virtual Reality", "Plan immersive experiences for training, simulation, engagement and interactive environments."],
-      ["Blockchain", "Understand blockchain use cases and whether distributed-ledger approaches fit your business."],
-      ["IoT", "Connect devices and information flows to support monitoring, visibility and connected operations."]
+      [
+        "Augmented Reality",
+        "Explore digital experiences that connect virtual information with real-world environments."
+      ],
+      [
+        "Virtual Reality",
+        "Plan immersive experiences for training, simulation, engagement and interactive environments."
+      ],
+      [
+        "Blockchain",
+        "Understand blockchain use cases and whether distributed-ledger approaches fit your business."
+      ],
+      [
+        "Internet of Things",
+        "Connect devices and information flows to support monitoring, visibility and connected operations."
+      ]
     ]
   },
   {
@@ -57,10 +127,22 @@ const serviceCategories = [
     description:
       "Build the foundation for reliable software and modern infrastructure. Explore platform, cloud and operational capabilities aligned with your business needs.",
     items: [
-      ["DevOps & DevSecOps", "Bring development, operations and security practices together throughout the software lifecycle."],
-      ["Cloud Migration", "Evaluate cloud migration approaches based on your existing systems, workloads and business priorities."],
-      ["Modernization", "Review legacy applications and explore practical ways to improve maintainability and capability."],
-      ["CI/CD Pipelines", "Explore automated build, testing and deployment workflows for consistent software delivery."]
+      [
+        "DevOps & DevSecOps",
+        "Bring development, operations and security practices together throughout the software lifecycle."
+      ],
+      [
+        "Cloud Migration",
+        "Evaluate cloud migration approaches based on your existing systems, workloads and business priorities."
+      ],
+      [
+        "Application Modernization",
+        "Review legacy applications and explore practical ways to improve maintainability and capability."
+      ],
+      [
+        "CI/CD Pipelines",
+        "Explore automated build, testing and deployment workflows for consistent software delivery."
+      ]
     ]
   },
   {
@@ -68,12 +150,24 @@ const serviceCategories = [
     icon: CheckCircle2,
     title: "Quality Assurance & Testing",
     description:
-      "Validate software quality through structured testing and review. We can discuss testing activities that suit your product, users and delivery requirements.",
+      "Validate software quality through structured testing and review. Discuss testing activities that suit your product, users and delivery requirements.",
     items: [
-      ["Testing Automation", "Explore automation for repeatable checks and efficient software testing workflows."],
-      ["Security Testing", "Review application security considerations and identify areas requiring validation."],
-      ["Performance Testing", "Evaluate how applications respond under different usage and workload conditions."],
-      ["Manual Testing", "Validate user journeys, functionality and expected behaviour through structured testing."]
+      [
+        "Test Automation",
+        "Explore automation for repeatable checks and efficient software testing workflows."
+      ],
+      [
+        "Security Testing",
+        "Review application security considerations and identify areas requiring validation."
+      ],
+      [
+        "Performance Testing",
+        "Evaluate how applications respond under different usage and workload conditions."
+      ],
+      [
+        "Manual Testing",
+        "Validate user journeys, functionality and expected behaviour through structured testing."
+      ]
     ]
   },
   {
@@ -83,50 +177,57 @@ const serviceCategories = [
     description:
       "Design clear and thoughtful digital experiences. Align user needs, product goals and visual consistency across your digital platforms.",
     items: [
-      ["UX Design", "Understand user needs, structure journeys and plan intuitive digital experiences."],
-      ["UI Design", "Create consistent visual interfaces that support usability and product identity."],
-      ["Web Design", "Plan responsive website experiences aligned with your brand and audience."],
-      ["Product Design", "Connect user research, interface design and product requirements."]
+      [
+        "UX Design",
+        "Understand user needs, structure journeys and plan intuitive digital experiences."
+      ],
+      [
+        "UI Design",
+        "Create consistent visual interfaces that support usability and product identity."
+      ],
+      [
+        "Web Design",
+        "Plan responsive website experiences aligned with your brand and audience."
+      ],
+      [
+        "Product Design",
+        "Connect user research, interface design and product requirements."
+      ]
     ]
   }
 ];
 
+/* =========================================
+   WORK MODELS
+========================================= */
+
 const workModels = [
   {
     label: "STAFF AUGMENTATION",
-    title: "Need a couple of extra software engineers on your team?",
-    description: "Get senior, production-ready developers with expertise aligned to your project needs. They work as part of your team, alongside your existing standards and workflows.",
+    title: "Need additional software engineers on your team?",
+    description:
+      "Find developers with expertise aligned to your project needs. They can work alongside your existing team, standards and workflows.",
     dots: 1
   },
   {
     label: "DEDICATED TEAMS",
-    title: "Need a few teams to deliver several projects simultaneously?",
-    description: "Build a dedicated team around your project requirements, technical skills and delivery priorities, with a collaborative working approach.",
+    title: "Need a dedicated team for your projects?",
+    description:
+      "Build a dedicated team around your project requirements, technical skills and delivery priorities.",
     dots: 6
   },
   {
     label: "SOFTWARE OUTSOURCING",
-    title: "Want to offload everything to us, from start to finish?",
-    description: "Discuss an end-to-end outsourcing arrangement covering the agreed scope, responsibilities, coordination and delivery expectations.",
+    title: "Looking for end-to-end software development?",
+    description:
+      "Discuss an outsourcing arrangement covering the agreed project scope, responsibilities, coordination and delivery expectations.",
     dots: 9
   }
 ];
 
-const technologies = [
-  ["C#", "C#"], ["Node.js", "⬡"], ["React", "⚛"],
-  ["JavaScript", "JS"], ["Java", "♨"], ["Kubernetes", "☸"],
-  ["Angular", "A"], ["AWS", "aws"], ["Python", "Py"],
-  ["TypeScript", "TS"], [".NET", ".NET"], ["Google Cloud", "G"]
-];
-
-const aiTools = [
-  { name: "AI", icon: BrainCircuit },
-  { name: "GitHub", icon: GitBranch },
-  { name: "Generative AI", icon: Sparkles },
-  { name: "Development", icon: Code2 },
-  { name: "Automation", icon: Workflow },
-  { name: "Security", icon: ShieldCheck }
-];
+/* =========================================
+   APPROACH ITEMS
+========================================= */
 
 const approachItems = [
   {
@@ -167,105 +268,207 @@ const approachItems = [
   }
 ];
 
-const kickoffSteps = [
-  {
-    icon: Phone,
-    title: "Discuss solutions and decide team structure.",
-    description: "Tell us about your business, challenges and project needs."
-  },
-  {
-    icon: GitBranch,
-    title: "Onboard your team and get to work.",
-    description: "Align project specifications, responsibilities and the right technical capabilities."
-  },
-  {
-    icon: TrendingUp,
-    title: "Review progress on an ongoing basis.",
-    description: "Discuss progress, quality expectations and project priorities with your team."
-  }
-];
+/* =========================================
+   FAQ CONTENT
+========================================= */
 
 const faqs = [
   {
     question: "What custom software development services do you offer?",
-    answer: "We can discuss web and mobile application development, custom business applications, enterprise software, cloud-based applications and related technology requirements."
+    answer:
+      "We can discuss web and mobile application development, custom business applications, enterprise software, cloud-based applications and related technology requirements."
   },
   {
     question: "What programming languages and technologies do you support?",
-    answer: "Our technology landscape includes frontend, backend, mobile, database, cloud and AI technologies. The appropriate stack depends on your project scope and technical requirements."
+    answer:
+      "Our technology landscape includes frontend, backend, mobile, database, cloud and AI technologies. The appropriate stack depends on your project scope and technical requirements."
   },
   {
     question: "How much do software development services cost?",
-    answer: "Costs depend on project scope, complexity, required skills, timeline and engagement model. Share your requirements so we can discuss the work in context."
+    answer:
+      "Costs depend on project scope, complexity, required skills, timeline and engagement model. Share your requirements so we can discuss the work in context."
   },
   {
-    question: "Do you offer support post-launch?",
-    answer: "Ongoing support and maintenance requirements can be discussed as part of the project scope, including application updates, improvements and technical support."
+    question: "Do you offer support after launch?",
+    answer:
+      "Ongoing support and maintenance requirements can be discussed as part of the project scope, including application updates, improvements and technical support."
   },
   {
-    question: "Can you help us with modernization needs?",
-    answer: "We can discuss existing systems, technical challenges and modernization goals to explore suitable application, platform or infrastructure improvements."
+    question: "Can you help with application modernization?",
+    answer:
+      "We can discuss existing systems, technical challenges and modernization goals to explore suitable application, platform or infrastructure improvements."
   },
   {
     question: "Why should we work with Deploy Optiq IQ?",
-    answer: "We focus on understanding your business requirements and aligning them with relevant people and technology capabilities. We value clear communication and a collaborative approach."
+    answer:
+      "We focus on understanding your business requirements and aligning them with relevant people and technology capabilities. We value clear communication and a collaborative approach."
   },
   {
     question: "What types of AI solutions can you build?",
-    answer: "We can discuss AI and machine learning applications, generative AI, intelligent automation and AI-assisted workflows based on your business goals and data requirements."
+    answer:
+      "We can discuss AI and machine learning applications, generative AI, intelligent automation and AI-assisted workflows based on your business goals and data requirements."
   }
 ];
 
+/* =========================================
+   TEAM IMAGE DATA
+========================================= */
+
+const teamImages = [
+  {
+    src: "/images/team-01.png",
+    alt: "Software development professional at Deploy Optiq IQ"
+  },
+  {
+    src: "/images/team-02.png",
+    alt: "Technology professional in a modern office"
+  },
+  {
+    src: "/images/team-03.png",
+    alt: "Software engineering team professional"
+  },
+  {
+    src: "/images/team-04.png",
+    alt: "IT professional representing Deploy Optiq IQ"
+  },
+  {
+    src: "/images/team-05.png",
+    alt: "Software developer corporate portrait"
+  },
+  {
+    src: "/images/team-06.png",
+    alt: "Technology specialist corporate portrait"
+  },
+  {
+    src: "/images/team-07.png",
+    alt: "Professional software engineer"
+  },
+  {
+    src: "/images/team-08.png",
+    alt: "IT staffing and technology professional"
+  },
+  {
+    src: "/images/team-09.png",
+    alt: "Software development professional portrait"
+  },
+  {
+    src: "/images/team-10.png",
+    alt: "Technology team professional portrait"
+  }
+];
+
+/* =========================================
+   DOT MATRIX COMPONENT
+========================================= */
+
 function DotMatrix({ active = 1 }) {
+  const patterns = {
+    1: [5],
+    6: [1, 2, 4, 5, 7, 8],
+    9: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  };
+
+  const orangeDots = patterns[active] || patterns[1];
+
   return (
     <div className="srv-dot-matrix" aria-hidden="true">
       {Array.from({ length: 9 }, (_, index) => (
-        <span key={index} className={index < active ? "orange" : ""} />
+        <span
+          key={index}
+          className={orangeDots.includes(index) ? "orange" : ""}
+        />
       ))}
     </div>
   );
 }
 
+/* =========================================
+   FAQ STRUCTURED DATA
+========================================= */
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer
+    }
+  }))
+};
+
+/* =========================================
+   SERVICES PAGE
+========================================= */
+
 export default function Services() {
   const [activeService, setActiveService] = useState(0);
   const [activeApproach, setActiveApproach] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
-  const [formVisible, setFormVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+
+  /* SEO META TAGS */
 
   useEffect(() => {
-    const section = document.querySelector(".srv-kickoff");
-    if (!section) return;
+    document.title = SEO_TITLE;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setFormVisible(entry.isIntersecting),
-      { threshold: 0.12 }
+    const setMeta = (attribute, key, content) => {
+      let element = document.head.querySelector(
+        `meta[${attribute}="${key}"]`
+      );
+
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attribute, key);
+        document.head.appendChild(element);
+      }
+
+      element.setAttribute("content", content);
+    };
+
+    setMeta("name", "description", SEO_DESCRIPTION);
+    setMeta(
+      "name",
+      "robots",
+      "index, follow, max-image-preview:large"
     );
 
-    observer.observe(section);
-    return () => observer.disconnect();
+    setMeta("property", "og:title", SEO_TITLE);
+    setMeta("property", "og:description", SEO_DESCRIPTION);
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:url", `${SITE_URL}/services`);
+
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", SEO_TITLE);
+    setMeta("name", "twitter:description", SEO_DESCRIPTION);
+
+    let canonical = document.head.querySelector(
+      'link[rel="canonical"]'
+    );
+
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+
+    canonical.setAttribute("href", `${SITE_URL}/services`);
+
   }, []);
 
   const selectedService = serviceCategories[activeService];
   const ServiceIcon = selectedService.icon;
-  const selectedApproach = approachItems[activeApproach];
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const subject = encodeURIComponent("Website enquiry - Deploy Optiq IQ");
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nWork email: ${formData.email}\n\nRequirement:\n${formData.message}`
-    );
-    window.location.href =
-      `mailto:info@deployoptiqiq.com?subject=${subject}&body=${body}`;
-  };
+  const selectedApproach = approachItems[activeApproach];
 
   return (
     <main className="services-page">
+
+      {/* =====================================
+          HERO SECTION
+      ====================================== */}
+
       <PageHero
         tag="SOFTWARE & TECHNOLOGY SERVICES"
         title="Technology services."
@@ -279,327 +482,673 @@ export default function Services() {
         proof="People. Technology. Progress."
       />
 
-      {/* REFERENCE PAGE 1 - STATISTICS / SERVICE HIGHLIGHTS */}
-      <section className="srv-highlights">
+      {/* =====================================
+          SERVICE HIGHLIGHTS
+      ====================================== */}
+
+      <section
+        className="srv-highlights"
+        aria-label="Service highlights"
+      >
         <div className="srv-container srv-highlights-grid">
+
           <div className="srv-highlight">
-            <Users />
-            <div><strong>IT</strong><span>Staffing & Talent</span></div>
+            <Users aria-hidden="true" />
+            <div>
+              <strong>People</strong>
+              <span>Technology Talent</span>
+            </div>
           </div>
+
           <div className="srv-highlight">
-            <Globe />
-            <div><strong>Web</strong><span>Digital Solutions</span></div>
+            <Globe aria-hidden="true" />
+            <div>
+              <strong>Global</strong>
+              <span>Technology Solutions</span>
+            </div>
           </div>
+
           <div className="srv-highlight">
-            <RefreshCw />
-            <div><strong>Flexible</strong><span>Engagement Models</span></div>
+            <RefreshCw aria-hidden="true" />
+            <div>
+              <strong>Flexible</strong>
+              <span>Engagement Models</span>
+            </div>
           </div>
+
           <div className="srv-highlight">
-            <Handshake />
-            <div><strong>End-to-End</strong><span>Project Collaboration</span></div>
+            <Handshake aria-hidden="true" />
+            <div>
+              <strong>Collaborative</strong>
+              <span>Business Approach</span>
+            </div>
           </div>
+
         </div>
       </section>
 
-      {/* REFERENCE PAGE 1-3 - CATEGORY SWITCHER */}
-      <section className="srv-service-section" id="srv-service-section">
+      {/* =====================================
+          SOFTWARE DEVELOPMENT SERVICES
+      ====================================== */}
+
+      <section
+        className="srv-service-section"
+        id="srv-service-section"
+        aria-labelledby="srv-service-title"
+      >
         <div className="srv-container">
+
           <div className="srv-service-intro">
             <div>
-              <span className="srv-eyebrow">SOFTWARE DEVELOPMENT SERVICES</span>
-              <h2>Support any project.<br />At any stage. Across any stack<span>.</span></h2>
+              <span className="srv-eyebrow">
+                SOFTWARE DEVELOPMENT SERVICES
+              </span>
+
+              <h2 id="srv-service-title">
+                Support any project.
+                <br />
+                At any stage. Across any stack<span>.</span>
+              </h2>
             </div>
+
             <p>
               At Deploy Optiq IQ, we help businesses explore the right
-              technology capabilities for their requirements. Whether you
-              are starting a new initiative or improving existing systems,
-              we're ready to discuss your project.
+              technology capabilities for their requirements. Whether
+              you are starting a new initiative or improving existing
+              systems, we're ready to discuss your project.
             </p>
           </div>
 
           <div className="srv-service-layout">
-            <div className="srv-service-menu">
+
+            <div
+              className="srv-service-menu"
+              role="group"
+              aria-label="Select a service category"
+            >
               {serviceCategories.map((item, index) => (
                 <button
                   type="button"
                   key={item.name}
                   className={activeService === index ? "active" : ""}
                   onClick={() => setActiveService(index)}
+                  aria-pressed={activeService === index}
                 >
                   <span>{item.name}</span>
-                  <ArrowRight size={17} />
+                  <ArrowRight size={17} aria-hidden="true" />
                 </button>
               ))}
             </div>
 
-            <div className="srv-service-content" key={selectedService.name}>
+            <div
+              className="srv-service-content"
+              key={selectedService.name}
+              aria-live="polite"
+            >
               <div className="srv-service-content-head">
-                <div className="srv-service-icon"><ServiceIcon size={23} /></div>
+
+                <div className="srv-service-icon">
+                  <ServiceIcon size={23} aria-hidden="true" />
+                </div>
+
                 <div>
                   <h3>{selectedService.title}</h3>
                   <p>{selectedService.description}</p>
                 </div>
+
               </div>
 
               <div className="srv-service-content-grid">
                 {selectedService.items.map(([title, description]) => (
                   <article key={title}>
-                    <h4>{title}<ChevronRight size={15} /></h4>
+                    <h4>
+                      {title}
+                      <ChevronRight size={15} aria-hidden="true" />
+                    </h4>
+
                     <p>{description}</p>
                   </article>
                 ))}
               </div>
 
               <a className="srv-service-all" href="/contact">
-                All Solutions <ArrowRight size={16} />
+                Explore solutions
+                <ArrowRight size={16} aria-hidden="true" />
               </a>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* REFERENCE PAGE 3 - HOW WE WORK CARDS */}
-      <section className="srv-how-work">
+      {/* =====================================
+          HOW WE WORK
+      ====================================== */}
+
+      <section
+        className="srv-how-work"
+        aria-labelledby="srv-work-title"
+      >
         <div className="srv-container">
+
           <div className="srv-work-heading">
             <div>
               <span className="srv-eyebrow">HOW WE WORK</span>
-              <h2>Keep full control.<br />Or hand everything off to us<span>.</span></h2>
+
+              <h2 id="srv-work-title">
+                Keep full control.
+                <br />
+                Or hand everything off to us<span>.</span>
+              </h2>
             </div>
+
             <p>
-              From embedded engineers to fully managed projects, we can
-              discuss an engagement arrangement for your workflow,
-              priorities and delivery needs.
+              From embedded engineers to fully managed projects,
+              we can discuss an engagement arrangement for your
+              workflow, priorities and delivery needs.
             </p>
           </div>
 
           <div className="srv-work-cards">
             {workModels.map((model) => (
               <article className="srv-work-card" key={model.label}>
-                <span className="srv-work-label">{model.label}</span>
+
+                <span className="srv-work-label">
+                  {model.label}
+                </span>
+
                 <h3>{model.title}</h3>
+
                 <p>{model.description}</p>
+
                 <DotMatrix active={model.dots} />
-                <a href="/contact" aria-label={`Discuss ${model.label}`}>
-                  <ArrowRight size={18} />
+
+                <a
+                  href="/contact"
+                  aria-label={`Discuss ${model.label.toLowerCase()}`}
+                >
+                  <Eye className="srv-card-eye" size={21} />
+                  <ArrowRight
+                    className="srv-card-arrow"
+                    size={24}
+                  />
                 </a>
+
               </article>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* REFERENCE PAGE 4 - AI AND TECHNOLOGY STACK */}
-      <section className="srv-tech-panel">
+      {/* =====================================
+          AI AND TECHNOLOGY PANEL
+      ====================================== */}
+
+      <section
+        className="srv-tech-panel"
+        aria-label="AI-assisted software development"
+      >
         <div className="srv-container srv-tech-panel-inner">
+
           <div className="srv-ai-row">
+
             <div className="srv-tech-copy">
-              <span className="srv-eyebrow">AI-ASSISTED SOFTWARE DEVELOPMENT</span>
-              <h2>Work with AI-augmented developers<span>.</span></h2>
+              <span className="srv-eyebrow">
+                AI-ASSISTED SOFTWARE DEVELOPMENT
+              </span>
+
+              <h2>
+                Work with AI-augmented developers<span>.</span>
+              </h2>
+
               <p>
                 Explore how AI-assisted development tools can support
                 planning, coding, testing and productivity across your
                 software initiatives.
               </p>
             </div>
-            <div className="srv-ai-tool-grid">
-              {aiTools.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <div className="srv-ai-tool" key={tool.name} title={tool.name}>
-                    <Icon size={23} />
-                  </div>
-                );
-              })}
+
+            <div className="srv-ai-image-wrap">
+              <img
+                src="/images/ai-developer-tools.png"
+                alt="AI-assisted software development tools and technology"
+                className="srv-ai-image"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
+
           </div>
 
-          <div className="srv-stack-row">
-            <div className="srv-tech-copy">
-              <span className="srv-eyebrow">PLUG IN SPECIALISTS</span>
-              <h2>Who use your stack<span>.</span></h2>
+          {/* TECHNOLOGY STACK */}
+
+          <section
+            className="tech-stack-section"
+            aria-labelledby="tech-stack-title"
+          >
+            <div className="tech-stack-container">
+
+              <div className="tech-stack-content">
+                <span className="tech-stack-label">
+                  PLUG IN SPECIALISTS
+                </span>
+
+                <h2 id="tech-stack-title">
+                  Plug in specialists
+                  <br />
+                  who use your stack<span>.</span>
+                </h2>
+
+                <p>
+                  Our technology capabilities span modern development
+                  ecosystems, programming languages, cloud platforms
+                  and data technologies. The right combination depends
+                  on your project.
+                </p>
+
+                <a
+                  href="/contact"
+                  className="tech-stack-button"
+                >
+                  Get specialists for my stack
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div className="tech-stack-image">
+                <img
+                  src="/images/technology-stack-visual.png"
+                  alt="Technology stack including React, Node.js, Python, AWS and other technologies"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      {/* =====================================
+          TOP IT AND TECH TALENT
+      ====================================== */}
+
+      <section
+        className="talent-section"
+        aria-labelledby="talent-title"
+      >
+        <div className="talent-container">
+
+          <div className="talent-heading">
+
+            <div className="talent-heading-left">
+              <span className="talent-eyebrow">
+                OUR IT & TECHNOLOGY TALENT
+              </span>
+
+              <h2 id="talent-title">
+                Work with skilled software engineers
+                <span className="talent-dot">.</span>
+              </h2>
+            </div>
+
+            <div className="talent-heading-right">
               <p>
-                Our technology capabilities span modern development
-                ecosystems, programming languages, cloud platforms and
-                data technologies. The right combination depends on
-                your project.
+                We focus on understanding the skills, experience
+                and project context required for your team.
+                Discuss the technical capabilities your business
+                needs with Deploy Optiq IQ.
               </p>
-              <a href="/technologies" className="srv-orange-button">
-                Get specialists for my stack <ArrowRight size={16} />
-              </a>
             </div>
-            <div className="srv-tech-logo-grid">
-              {technologies.map(([name, logo]) => (
-                <div className="srv-tech-logo" key={name}>
-                  <b>{logo}</b><span>{name}</span>
-                </div>
-              ))}
-            </div>
+
+          </div>
+
+          <div className="talent-cards">
+
+            <article className="talent-card">
+              <div className="talent-icon">
+                <Code2 size={25} aria-hidden="true" />
+              </div>
+
+              <h3>Technical Expertise</h3>
+
+              <p>
+                Access developers with skills aligned to your
+                technology stack, project requirements and
+                development goals.
+              </p>
+            </article>
+
+            <article className="talent-card">
+              <div className="talent-icon">
+                <Users size={25} aria-hidden="true" />
+              </div>
+
+              <h3>Team Compatibility</h3>
+
+              <p>
+                Find professionals who can work with your
+                existing teams, communication style and
+                project workflows.
+              </p>
+            </article>
+
+            <article className="talent-card">
+              <div className="talent-icon">
+                <Target size={25} aria-hidden="true" />
+              </div>
+
+              <h3>Project Focus</h3>
+
+              <p>
+                Align technical talent with your business
+                priorities, delivery expectations and
+                project objectives.
+              </p>
+            </article>
+
           </div>
         </div>
       </section>
 
-      {/* REFERENCE PAGE 4 - SENIOR ENGINEERS STRIP */}
-      <section className="srv-senior-strip">
-        <div className="srv-container srv-senior-inner">
-          <div>
-            <span className="srv-eyebrow">OUR TOP IT & TECH TALENT</span>
-            <h2>Work with vetted software engineering talent<span>.</span></h2>
-          </div>
-          <p>
-            We focus on understanding the skills, experience and project
-            context required for your team. Discuss the technical
-            capabilities your business needs with Deploy Optiq IQ.
-          </p>
-        </div>
-      </section>
+      {/* =====================================
+          OUR APPROACH
+      ====================================== */}
 
-      {/* REFERENCE PAGE 4-5 - OUR APPROACH */}
-      <section className="srv-approach-section">
+      <section
+        className="srv-approach-section"
+        aria-labelledby="srv-approach-title"
+      >
         <div className="srv-container">
+
           <span className="srv-eyebrow">OUR APPROACH</span>
-          <h2>Your partnership is our priority<span>.</span></h2>
+
+          <h2 id="srv-approach-title">
+            Your partnership is our priority<span>.</span>
+          </h2>
 
           <div className="srv-approach-layout">
-            <div className="srv-approach-menu">
+
+            <div
+              className="srv-approach-menu"
+              role="group"
+              aria-label="Our working approach"
+            >
               {approachItems.map((item, index) => {
                 const Icon = item.icon;
+
                 return (
                   <button
                     type="button"
                     key={item.title}
                     className={activeApproach === index ? "active" : ""}
                     onClick={() => setActiveApproach(index)}
+                    aria-pressed={activeApproach === index}
                   >
-                    <span><Icon size={16} /></span>
+                    <span>
+                      <Icon size={16} aria-hidden="true" />
+                    </span>
+
                     {item.title}
                   </button>
                 );
               })}
             </div>
 
-            <div className="srv-approach-card" key={selectedApproach.title}>
+            <div
+              className="srv-approach-card"
+              key={selectedApproach.title}
+              aria-live="polite"
+            >
               <h3>{selectedApproach.heading}</h3>
+
               {selectedApproach.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* REFERENCE PAGE 5 - KICKOFF WITH ENQUIRY FORM */}
-      <section className="srv-kickoff">
+      {/* =====================================
+          KICKOFF / ENQUIRY SECTION
+      ====================================== */}
+
+      <section className="srv-kickoff" id="srv-kickoff">
         <div className="srv-container srv-kickoff-layout">
+
           <div className="srv-kickoff-copy">
-            <span className="srv-eyebrow">LET'S GET STARTED</span>
-            <h2>Kick off your project with the right team<span>.</span></h2>
+            <h2>Kick off projects in 2-4 weeks.</h2>
+
             <div className="srv-kickoff-steps">
-              {kickoffSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div className="srv-kickoff-step" key={step.title}>
-                    <span className="srv-step-icon"><Icon size={22} /></span>
-                    <div>
-                      <h3>{step.title}</h3>
-                      <p>{step.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
+              <div className="srv-kickoff-step">
+                <div className="srv-step-icon">
+                  <Phone size={23} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>Discuss solutions and decide team structure.</h3>
+                  <p>Tell us about your business, challenges, and project needs.</p>
+                </div>
+              </div>
+
+              <div className="srv-kickoff-step">
+                <div className="srv-step-icon">
+                  <GitBranch size={23} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>Onboard your team and get to work.</h3>
+                  <p>We’ll align the project specifications, then select and onboard the right team.</p>
+                </div>
+              </div>
+
+              <div className="srv-kickoff-step">
+                <div className="srv-step-icon">
+                  <TrendingUp size={23} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>We track performance on an ongoing basis.</h3>
+                  <p>We make sure our engineers meet your quantity and quality of work standards at all times.</p>
+                </div>
+              </div>
             </div>
           </div>
 
           <form
-            className={`srv-kickoff-form ${formVisible ? "visible" : ""}`}
-            onSubmit={handleFormSubmit}
+            className="srv-kickoff-form visible"
+            onSubmit={(event) => {
+              event.preventDefault();
+              window.location.href = "/contact";
+            }}
           >
-            <h3>Accelerate your project with the right capabilities.</h3>
+            <h3>Accelerate projects with top nearshore engineers:</h3>
+
             <input
               type="text"
+              name="name"
               placeholder="Your name"
               aria-label="Your name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              autoComplete="name"
               required
             />
+
             <input
               type="email"
+              name="email"
               placeholder="Your work email"
               aria-label="Your work email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              autoComplete="email"
               required
             />
+
             <textarea
+              name="message"
               placeholder="Tell us what you need."
               aria-label="Tell us what you need"
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              rows={4}
               required
             />
-            <button type="submit">
-              Connect With Us <ArrowRight size={17} />
-            </button>
-            <small>Deploy Optiq IQ · IT Staffing & Technology Solutions</small>
+
+            <button type="submit">Connect With Us</button>
           </form>
+
         </div>
       </section>
 
-      {/* REFERENCE PAGE 6 - FAQ */}
-      <section className="srv-faq-section">
+      {/* =====================================
+          FAQ SECTION
+      ====================================== */}
+
+      <section
+        className="srv-faq-section"
+        aria-labelledby="srv-faq-title"
+      >
         <div className="srv-container">
+
           <div className="srv-faq-heading">
+
             <div>
-              <span className="srv-eyebrow">FAQ</span>
-              <h2>What tech leaders ask about our software development services before booking a call<span>.</span></h2>
+              <span className="srv-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+
+              <h2 id="srv-faq-title">
+                What businesses ask about our software development services<span>.</span>
+              </h2>
             </div>
+
             <p>
               Have questions about our services, technology capabilities
               or working approach? Explore common questions or contact
               our team to discuss your requirements.
             </p>
+
           </div>
 
           <div className="srv-faq-grid">
+
             {faqs.map((faq, index) => (
-              <article className="srv-faq-item" key={faq.question}>
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
-                  aria-expanded={openFaq === index}
-                >
-                  <span>{faq.question}</span>
-                  <ChevronRight size={17} />
-                </button>
-                {openFaq === index && <p>{faq.answer}</p>}
+              <article
+                className="srv-faq-item"
+                key={faq.question}
+              >
+                <h3>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenFaq(openFaq === index ? -1 : index)
+                    }
+                    aria-expanded={openFaq === index}
+                    aria-controls={`srv-faq-answer-${index}`}
+                  >
+                    <span>{faq.question}</span>
+
+                    <ChevronRight
+                      size={17}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </h3>
+
+                {openFaq === index && (
+                  <p
+                    id={`srv-faq-answer-${index}`}
+                  >
+                    {faq.answer}
+                  </p>
+                )}
+
               </article>
             ))}
+
           </div>
         </div>
+
+        {/* FAQ SEARCH STRUCTURED DATA */}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData)
+          }}
+        />
+
       </section>
 
-      {/* REFERENCE PAGE 6 - SEPARATE TEAM SECTION */}
-      <section className="srv-team-section">
+      {/* =====================================
+          OUR PEOPLE - AUTOMATIC IMAGE SLIDER
+      ====================================== */}
+
+      <section
+        className="srv-team-section"
+        aria-labelledby="srv-team-title"
+      >
+
         <div className="srv-container srv-team-heading">
+
           <div>
             <span className="srv-eyebrow">OUR PEOPLE</span>
-            <h2>See how the right technology capabilities can support your business<span>.</span></h2>
+
+            <h2 id="srv-team-title">
+              See why the biggest names in tech choose our
+              software development services<span>.</span>
+            </h2>
           </div>
-          <a href="/contact" className="srv-orange-button">
-            Connect With Us <ArrowRight size={16} />
-          </a>
+
         </div>
 
-        <div className="srv-team-track" aria-label="Deploy Optiq IQ team and technology">
-          {["People", "Software", "Technology", "Innovation", "Collaboration", "Engineering", "Solutions", "Progress"].map((item, index) => (
-            <div className="srv-team-tile" key={item}>
-              <span>0{index + 1}</span>
-              <strong>{item}</strong>
+        <div
+          className="srv-team-marquee"
+          aria-label="A showcase of professional technology team portraits"
+        >
+
+          <div className="srv-team-track">
+
+            {/* FIRST IMAGE GROUP */}
+
+            <div className="srv-team-group">
+              {teamImages.map((person, index) => (
+                <div
+                  className="srv-team-image"
+                  key={`first-${person.src}`}
+                >
+                  <img
+                    src={person.src}
+                    alt={person.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* DUPLICATE GROUP FOR SEAMLESS LOOP */}
+
+            <div
+              className="srv-team-group"
+              aria-hidden="true"
+            >
+              {teamImages.map((person) => (
+                <div
+                  className="srv-team-image"
+                  key={`second-${person.src}`}
+                >
+                  <img
+                    src={person.src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+
+          </div>
+
         </div>
+
       </section>
+
     </main>
   );
 }

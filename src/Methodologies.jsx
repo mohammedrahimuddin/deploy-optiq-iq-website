@@ -275,7 +275,7 @@ function Methodologies() {
         title="Design Thinking"
         description="Design thinking is a human-centric approach to innovation and problem-solving. It encourages empathy, ideation, and experimentation to create user-centered solutions. Everything we do follows this guiding principle."
         intro="Here are some of the ways we help our healthcare clients."
-        diagram={<MethodDiagram src="public/images/methodologies/design-thinking-diagram.png" alt="Design Thinking infinity process diagram" />}
+        diagram={<MethodDiagram src="public/images/methodologies/design-thinking-diagram02.png" alt="Design Thinking infinity process diagram" />}
         process={designProcess}
         practices={designPractices}
       />
@@ -285,7 +285,7 @@ function Methodologies() {
         title="Agile"
         description="Agile is a set of principles for software development. It prioritizes customer satisfaction through continuous improvement and iterative progress."
         intro="It is ideally utilized in environments where product requirements are expected to change and evolve over time. Agile is standard practice for most of our projects."
-        diagram={<MethodDiagram src="public/images/methodologies/agile-diagram.png" alt="Agile three sprint cycle diagram" />}
+        diagram={<MethodDiagram src="public/images/methodologies/agile-diagram02.png" alt="Agile three sprint cycle diagram" />}
         process={agileProcess}
         practices={agilePractices}
       />
@@ -294,7 +294,7 @@ function Methodologies() {
         id="scrum"
         title="Scrum"
         description="Scrum is a flexible and iterative Agile framework that's ideal for managing complex software and product development using incremental progress through sprints. It is best suited to projects where requirements might change rapidly and there is a need for frequent adaptations. All of our teams are led by a certified Scrum Master and Product Owner."
-        diagram={<MethodDiagram src="public/images/methodologies/scrum-diagram.png" alt="Scrum 30-day sprint diagram" />}
+        diagram={<MethodDiagram src="public/images/methodologies/scrum-diagram01.png" alt="Scrum 30-day sprint diagram" />}
         process={scrumProcess}
         practices={scrumPractices}
       />
@@ -330,6 +330,7 @@ function Methodologies() {
         id="prototype-methodology"
         title="Prototype Methodology"
         description="In the prototype methodology, a preliminary version of the software is developed to gather user feedback and clarify requirements, which then guides the development of the final product."
+        diagram={<MethodDiagram src="public/images/methodologies/proto.png" alt="Rapid Application Development prototype cycle diagram" />}
         process={prototypeProcess}
         practices={prototypePractices}
       />

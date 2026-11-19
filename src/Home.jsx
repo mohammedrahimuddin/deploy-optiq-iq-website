@@ -1,181 +1,16 @@
-
 import React from "react";
-
 import {
   ArrowRight,
   CheckCircle2,
-  Users,
-  Layers,
-  Target,
-  Lightbulb,
-  ShieldCheck,
-  BriefcaseBusiness,
-  Handshake,
-  ClipboardCheck,
-  Rocket,
-  Building2,
   Code2,
-  Cloud,
-  MessageCircle,
-  Cpu,
-  Network,
-  Sparkles,
+  Database,
+  BrainCircuit,
+  Smartphone,
+  Palette,
+  ShieldCheck,
 } from "lucide-react";
-
 import "./Home.css";
 
-const services = [
-  {
-    number: "01",
-    icon: Users,
-    title: "IT Staffing & Talent Solutions",
-    text: "Connect with technical professionals and staffing support aligned with your team's skills, roles and business requirements.",
-    link: "Explore staffing",
-    featured: true,
-  },
-  {
-    number: "02",
-    icon: Code2,
-    title: "Custom Technology Solutions",
-    text: "Explore practical software and technology solutions shaped around your operational needs and business objectives.",
-    link: "Explore solutions",
-  },
-  {
-    number: "03",
-    icon: Cloud,
-    title: "Cloud & IT Infrastructure",
-    text: "Discuss cloud, infrastructure and technical support requirements that help your business build and maintain its technology environment.",
-    link: "Discuss your needs",
-  },
-  {
-    number: "04",
-    icon: BriefcaseBusiness,
-    title: "Project & Team Support",
-    text: "Strengthen project execution with suitable technical resources, clear responsibilities and collaborative support.",
-    link: "Discuss a project",
-  },
-];
-
-const benefits = [
-  {
-    number: "01",
-    icon: Target,
-    title: "Business-first thinking",
-    text: "We start by understanding your objectives, challenges and priorities before exploring possible solutions.",
-  },
-  {
-    number: "02",
-    icon: Users,
-    title: "Requirements-led support",
-    text: "Our discussions focus on the people, skills and technology your particular requirement may call for.",
-  },
-  {
-    number: "03",
-    icon: MessageCircle,
-    title: "Clear communication",
-    text: "We value transparent conversations, shared expectations and regular coordination throughout an engagement.",
-  },
-  {
-    number: "04",
-    icon: ShieldCheck,
-    title: "Responsible collaboration",
-    text: "We aim to build practical working relationships with clarity around needs, responsibilities and next steps.",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Understand",
-    text: "We learn about your business, goals, challenges and expectations.",
-  },
-  {
-    number: "02",
-    title: "Identify",
-    text: "We explore the skills, resources or technology support your requirement may need.",
-  },
-  {
-    number: "03",
-    title: "Align",
-    text: "We discuss priorities, expectations, scope and a suitable way forward.",
-  },
-  {
-    number: "04",
-    title: "Collaborate",
-    text: "We work together through communication and agreed responsibilities.",
-  },
-  {
-    number: "05",
-    title: "Review",
-    text: "We review progress and stay aligned with the needs of the engagement.",
-  },
-  {
-    number: "06",
-    title: "Move Forward",
-    text: "We discuss the next steps as your business and technology needs evolve.",
-  },
-];
-
-const focusAreas = [
-  {
-    icon: Users,
-    title: "IT staffing requirements",
-    text: "Technical talent and team support",
-  },
-  {
-    icon: Building2,
-    title: "Business technology needs",
-    text: "Solutions aligned with business goals",
-  },
-  {
-    icon: Layers,
-    title: "Technology project support",
-    text: "Resources and project collaboration",
-  },
-  {
-    icon: Rocket,
-    title: "Growing business capabilities",
-    text: "Support for evolving requirements",
-  },
-];
-
-const faqs = [
-  {
-    question: "What does Deploy Optiq IQ focus on?",
-    answer:
-      "Deploy Optiq IQ is a product- and service-based IT company focused on IT staffing and technology solutions. We work to understand business requirements and discuss practical ways to support teams and projects.",
-  },
-  {
-    question: "Can we discuss our IT staffing requirements?",
-    answer:
-      "Yes. You can share the roles, technical skills, experience requirements and team support you are looking for. Our team can understand your needs and discuss possible next steps.",
-  },
-  {
-    question: "Can we discuss a specific technology requirement?",
-    answer:
-      "Yes. Tell us about your business or project requirement, the challenges you are facing and the outcome you want to achieve. We can discuss the type of technology support that may be suitable.",
-  },
-  {
-    question: "How do we get started?",
-    answer:
-      "Start by submitting the enquiry form on our Contact Us page. Share your name, contact details, service requirement and a short project description so our team can understand your enquiry.",
-  },
-  {
-    question: "How can we contact Deploy Optiq IQ?",
-    answer:
-      "You can contact us through the website enquiry form, email or WhatsApp. Visit our Contact Us page for the available contact details.",
-  },
-];
-
-function SectionHeading({ eyebrow, title, text, center = false }) {
-  return (
-    <div className={`home-v2-heading ${center ? "is-centered" : ""}`}>
-      <span className="home-v2-eyebrow">{eyebrow}</span>
-      <h2>{title}</h2>
-      {text && <p>{text}</p>}
-    </div>
-  );
-}
 
 function HeroSection() {
   return (
@@ -304,296 +139,300 @@ function HeroSection() {
   );
 }
 
+const disciplines = [
+  {
+    icon: Code2,
+    title: "Front-End Development",
+    description: "Build modern, responsive digital experiences with clean interfaces and accessible design.",
+    tags: ["React", "Web Development", "HTML", "CSS"],
+    tone: "coral",
+  },
+  {
+    icon: Database,
+    title: "Back-End Development",
+    description: "Create reliable, scalable systems that support your products, platforms and data.",
+    tags: ["Node.js", "Databases", "APIs", ".NET"],
+    tone: "slate",
+  },
+  {
+    icon: BrainCircuit,
+    title: "AI and Machine Learning",
+    description: "Explore intelligent solutions, automation and data-driven capabilities for your business.",
+    tags: ["AI", "Machine Learning", "Data Science"],
+    tone: "blue",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Development",
+    description: "Deliver useful mobile experiences across devices, platforms and customer journeys.",
+    tags: ["Mobile Apps", "iOS", "Android"],
+    tone: "blue",
+  },
+  {
+    icon: Palette,
+    title: "UX/UI Design",
+    description: "Shape intuitive digital products through thoughtful research, design and prototyping.",
+    tags: ["UX Design", "UI Design", "Prototyping"],
+    tone: "teal",
+  },
+  {
+    icon: ShieldCheck,
+    title: "QA and Testing",
+    description: "Support product quality with structured testing, validation and dependable release checks.",
+    tags: ["Quality Assurance", "Automation", "Testing"],
+    tone: "green",
+  },
+];
 
+const technologyRowOne = [
+  "React", ".NET", "Python", "C#", "Rails", "Node.js", "Java",
+];
+const technologyRowTwo = [
+  "JavaScript", "Swift", "Angular", "PHP", "Android", "iOS", "Golang", "Vue.js",
+];
+
+const reasons = [
+  {
+    title: "The right people",
+    text: "Our approach begins with understanding the skills, experience and expertise your requirement calls for.",
+  },
+  {
+    title: "The right team",
+    text: "From a single specialist to a coordinated team, we discuss the support that fits your project.",
+  },
+  {
+    title: "The right place",
+    text: "We consider your working model, collaboration needs and business environment.",
+  },
+  {
+    title: "The right time",
+    text: "We align on priorities and next steps so support can move forward when it is needed.",
+  },
+];
+
+const teamRoles = [
+  { image: "/images/team-01.png", role: "Software developers" },
+  { image: "/images/team-02.png", role: "QA engineers" },
+  { image: "/images/team-03.png", role: "UX designers" },
+  { image: "/images/team-04.png", role: "Data specialists" },
+  { image: "/images/team-05.png", role: "Project managers" },
+];
+
+const engagementModels = [
+  {
+    eyebrow: "STAFF AUGMENTATION",
+    title: "Need a couple of extra software engineers on your team?",
+    detail: "Add specialist skills to your existing team and keep your project moving with focused technical support.",
+    dots: 7,
+  },
+  {
+    eyebrow: "DEDICATED TEAMS",
+    title: "Need a few teams to deliver several projects simultaneously?",
+    detail: "Bring together the right mix of skills, shared priorities and coordinated delivery for larger initiatives.",
+    dots: 9,
+  },
+  {
+    eyebrow: "SOFTWARE OUTSOURCING",
+    title: "Want to offload everything to us, from start to finish?",
+    detail: "Discuss an end-to-end engagement with clear scope, communication and agreed delivery milestones.",
+    dots: 9,
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Book a discovery call.",
+    text: "Tell us more about your business or requirement. We will discuss your goals, challenges, skills and support needs.",
+  },
+  {
+    number: "02",
+    title: "Discuss solution and team structure.",
+    text: "We review the details, explore suitable options and align on the engagement model, responsibilities and next steps.",
+  },
+  {
+    number: "03",
+    title: "Get started and track performance.",
+    text: "Once we agree on the approach, we stay connected through clear communication and progress reviews.",
+  },
+];
+
+function SectionEyebrow({ children }) {
+  return <span className="home-ref-eyebrow">{children}</span>;
+}
+
+function DisciplinesSection() {
+  return (
+    <section className="home-ref-disciplines">
+      <div className="home-ref-container">
+        <div className="home-ref-section-head">
+          <div>
+            <SectionEyebrow>WHAT WE DO</SectionEyebrow>
+            <h2>Every discipline, AI-augmented.<br />From first design to final release<span>.</span></h2>
+          </div>
+          <a href="/services" className="home-ref-small-link">Everything we do <ArrowRight size={16} /></a>
+        </div>
+
+        <div className="home-ref-discipline-grid">
+          {disciplines.map(({ icon: Icon, title, description, tags, tone }) => (
+            <article className="home-ref-discipline-card" key={title}>
+              <span className={`home-ref-discipline-icon ${tone}`}><Icon size={23} /></span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <div className="home-ref-tags">
+                {tags.map((tag) => <span key={tag}>{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TechnologyMarquee() {
+  return (
+    <section className="home-ref-tech-marquee" aria-label="Technology capabilities">
+      <div className="home-ref-container">
+        <div className="home-ref-marquee-heading">
+          <h2>Yes, we cover the tech stack and AI coding tools you rely on<span>.</span></h2>
+          <p>Our team has expertise in modern technologies and programming languages, supporting the needs of your project.</p>
+        </div>
+      </div>
+      <div className="home-ref-marquee-window">
+        <div className="home-ref-marquee-row left-to-right">
+          <div className="home-ref-marquee-track">
+            {[...technologyRowOne, ...technologyRowOne].map((tech, index) => (
+              <span key={`row-one-${index}`}>{tech}</span>
+            ))}
+          </div>
+        </div>
+        <div className="home-ref-marquee-row right-to-left">
+          <div className="home-ref-marquee-track">
+            {[...technologyRowTwo, ...technologyRowTwo].map((tech, index) => (
+              <span key={`row-two-${index}`}>{tech}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+      <a href="/technologies" className="home-ref-marquee-link">Our full expertise <ArrowRight size={15} /></a>
+    </section>
+  );
+}
+
+function WhyUsSection() {
+  return (
+    <section className="home-ref-why">
+      <div className="home-ref-why-inner">
+        <SectionEyebrow>WHY WORK WITH US</SectionEyebrow>
+        <h2>No need to wonder.<br />Working with us is wonderful<span>.</span></h2>
+        <div className="home-ref-reasons-grid">
+          {reasons.map((reason) => (
+            <article className="home-ref-reason" key={reason.title}>
+              <CheckCircle2 size={18} />
+              <div>
+                <h3>{reason.title}</h3>
+                <p>{reason.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TeamSection() {
+  return (
+    <section className="home-ref-team">
+      <div className="home-ref-container">
+        <div className="home-ref-team-panel">
+          <SectionEyebrow>PEOPLE WHO MOVE PROJECTS FORWARD</SectionEyebrow>
+          <div className="home-ref-team-people">
+            {teamRoles.map((person) => (
+              <article className="home-ref-person" key={person.role}>
+                <div className="home-ref-person-photo">
+                  <img src={person.image} alt={person.role} loading="lazy" />
+                </div>
+                <span>{person.role}</span>
+              </article>
+            ))}
+          </div>
+          <h2>Let’s assemble your team<span>.</span></h2>
+          <a href="/contact" className="home-ref-green-button">Schedule a Call <ArrowRight size={16} /></a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EngagementSection() {
+  return (
+    <section className="home-ref-engagement">
+      <div className="home-ref-container">
+        <div className="home-ref-engagement-head">
+          <h2>Keep full control.<br />Or hand everything off to us<span>.</span></h2>
+          <p>From embedded engineers to fully managed projects, we customise every engagement to fit your workflow, priorities and delivery needs.</p>
+        </div>
+        <div className="home-ref-engagement-grid">
+          {engagementModels.map((model) => (
+            <article className="home-ref-engagement-card" key={model.eyebrow} tabIndex="0">
+              <span className="home-ref-card-eyebrow">{model.eyebrow}</span>
+              <h3>{model.title}</h3>
+              <p>{model.detail}</p>
+              <div className="home-ref-dot-matrix" aria-hidden="true">
+                {Array.from({ length: model.dots }, (_, index) => (
+                  <i key={index} />
+                ))}
+              </div>
+              <ArrowRight className="home-ref-engagement-arrow" size={20} />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProcessSection() {
+  return (
+    <section className="home-ref-process">
+      <div className="home-ref-container home-ref-process-layout">
+        <div className="home-ref-process-visual">
+          <div className="home-ref-process-copy">
+            <SectionEyebrow>HOW WE WORK</SectionEyebrow>
+            <h2>Our process.<br />Simple,<br />seamless,<br />streamlined<span>.</span></h2>
+          </div>
+          <img src="/images/team-06.png" alt="Technology professional ready to discuss your project" loading="lazy" />
+        </div>
+        <div className="home-ref-process-content">
+          {processSteps.map((step) => (
+            <article className="home-ref-process-step" key={step.number}>
+              <span className="home-ref-process-number">{step.number}</span>
+              <div>
+                <span className="home-ref-process-label">STEP {step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            </article>
+          ))}
+          <a href="/contact" className="home-ref-process-button">Schedule a Call <ArrowRight size={16} /></a>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="home-page home-v2">
-
-      {/* 01 - EXISTING HERO: KEPT INTACT */}
+    <main className="home-page">
       <HeroSection />
-
-      {/* 02 - WHO WE ARE */}
-      
-<section className="home-v2-intro">
-  <div className="home-v2-container home-v2-intro-grid">
-
-    <div className="home-v2-intro-side">
-      <span className="home-v2-eyebrow">WHO WE ARE</span>
-
-      <div className="intro-tech-visual">
-        <div className="intro-tech-orbit intro-orbit-one"></div>
-        <div className="intro-tech-orbit intro-orbit-two"></div>
-        <div className="intro-tech-orbit intro-orbit-three"></div>
-
-        <div className="intro-tech-core">
-          <Network size={43} strokeWidth={1.5} />
-          <span className="intro-core-pulse"></span>
-        </div>
-
-        <div className="intro-floating-icon intro-icon-people">
-          <Users size={25} />
-        </div>
-
-        <div className="intro-floating-icon intro-icon-code">
-          <Code2 size={25} />
-        </div>
-
-        <div className="intro-floating-icon intro-icon-cloud">
-          <Cloud size={25} />
-        </div>
-
-        <div className="intro-floating-icon intro-icon-cpu">
-          <Cpu size={25} />
-        </div>
-
-        <div className="intro-floating-icon intro-icon-spark">
-          <Sparkles size={22} />
-        </div>
-
-        <div className="intro-tech-caption">
-          <span></span>
-          PEOPLE + TECHNOLOGY
-        </div>
-      </div>
-      
-    </div>
-
-    <div className="home-v2-intro-content">
-      <h2>
-        Your partner for <em>people and technology.</em>
-      </h2>
-
-      <h3>
-        The right talent and the right technology can help businesses
-        move forward.
-      </h3>
-
-      <p>
-        Deploy Optiq IQ is a product- and service-based IT company
-        focused on IT staffing and technology solutions. We take time
-        to understand business requirements and explore practical ways
-        to support teams, projects and technology needs.
-      </p>
-
-      <a className="home-v2-text-link" href="/about">
-        Discover our company <ArrowRight size={18} />
-      </a>
-    </div>
-
-  </div>
-</section>
-
-
-      {/* 03 - WHAT WE DO */}
-      <section className="home-v2-services">
-        <div className="home-v2-container">
-          <SectionHeading
-            eyebrow="WHAT WE DO"
-            title="People and technology, working towards your goals."
-            text="From technical talent to technology support, explore how we can help address your business requirements."
-            center
-          />
-
-          <div className="home-v2-service-grid">
-            {services.map(({ number, icon: Icon, title, text, link, featured }) => (
-              <a
-                href="/services"
-                className={`home-v2-service-card ${featured ? "is-featured" : ""}`}
-                key={number}
-              >
-                <div className="home-v2-card-top">
-                  <span className="home-v2-service-icon">
-                    <Icon size={24} />
-                  </span>
-                  <span className="home-v2-card-number">{number}</span>
-                </div>
-
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-
-                <span className="home-v2-card-link">
-                  {link} <ArrowRight size={17} />
-                </span>
-              </a>
-            ))}
-          </div>
-
-          <div className="home-v2-centered-action">
-            <a href="/services" className="home-v2-dark-button">
-              Explore all services <ArrowRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 04 - WHY DEPLOY OPTIQ IQ */}
-      <section className="home-v2-difference">
-        <div className="home-v2-container home-v2-difference-grid">
-          <div className="home-v2-difference-copy">
-            <span className="home-v2-eyebrow">THE DIFFERENCE WE BRING</span>
-            <h2>
-              More than a service.
-              <em> A partner in your progress.</em>
-            </h2>
-            <p>
-              Strong working relationships begin with understanding.
-              We focus on your requirements, communicate clearly and
-              explore practical ways to move your business forward.
-            </p>
-            <a href="/about" className="home-v2-text-link">
-              Learn about our approach <ArrowRight size={18} />
-            </a>
-          </div>
-
-          <div className="home-v2-benefit-list">
-            {benefits.map(({ number, icon: Icon, title, text }) => (
-              <article className="home-v2-benefit" key={number}>
-                <span className="home-v2-benefit-number">{number}</span>
-                <span className="home-v2-benefit-icon">
-                  <Icon size={21} />
-                </span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-                <ArrowRight className="home-v2-benefit-arrow" size={19} />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 05 - HOW WE WORK */}
-      <section className="home-v2-process">
-        <div className="home-v2-container">
-          <SectionHeading
-            eyebrow="HOW WE WORK"
-            title="A clear approach. Built around your needs."
-            text="Every requirement is different. Our approach focuses on understanding, alignment and collaboration at every stage."
-            center
-          />
-
-          <div className="home-v2-process-grid">
-            {steps.map(({ number, title, text }) => (
-              <article className="home-v2-process-card" key={number}>
-                <span className="home-v2-process-number">{number}</span>
-                <div className="home-v2-process-marker">
-                  <span></span>
-                </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="home-v2-centered-action">
-            <a href="/methodologies" className="home-v2-text-link">
-              Explore our methodologies <ArrowRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 06 - BUSINESS FOCUS */}
-      <section className="home-v2-focus">
-        <div className="home-v2-container home-v2-focus-grid">
-          <div className="home-v2-focus-copy">
-            <span className="home-v2-eyebrow">OUR BUSINESS FOCUS</span>
-            <h2>
-              Support that starts with <em>your requirements.</em>
-            </h2>
-            <p>
-              Every organization has different priorities. We take time
-              to understand your staffing needs, technology requirements
-              and project objectives before discussing a suitable way forward.
-            </p>
-            <a href="/contact" className="home-v2-orange-button">
-              Discuss your requirements <ArrowRight size={18} />
-            </a>
-          </div>
-
-          <div className="home-v2-focus-list">
-            {focusAreas.map(({ icon: Icon, title, text }, index) => (
-              <div className="home-v2-focus-item" key={title}>
-                <span className="home-v2-focus-index">
-                  0{index + 1}
-                </span>
-                <span className="home-v2-focus-icon">
-                  <Icon size={23} />
-                </span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-                <ArrowRight size={19} className="home-v2-focus-arrow" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 07 - CONTACT CTA */}
-      <section className="home-v2-cta">
-        <div className="home-v2-container">
-          <div className="home-v2-cta-inner">
-            <div className="home-v2-cta-decoration"></div>
-            <span className="home-v2-cta-eyebrow">
-              LET'S WORK TOGETHER
-            </span>
-            <h2>
-              Have a requirement?
-              <em> Let's start a conversation.</em>
-            </h2>
-            <p>
-              Tell us what your business needs, whether it is IT staffing,
-              technology solutions or project support. Let's explore the
-              right next step together.
-            </p>
-            <div className="home-v2-cta-actions">
-              <a href="/contact" className="home-v2-light-button">
-                Talk to our team <ArrowRight size={18} />
-              </a>
-              <a href="/services" className="home-v2-cta-secondary">
-                Explore our services
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 08 - FAQ */}
-      <section className="home-v2-faq">
-        <div className="home-v2-container home-v2-faq-grid">
-          <div className="home-v2-faq-copy">
-            <span className="home-v2-eyebrow">GOOD TO KNOW</span>
-            <h2>Questions before we get started?</h2>
-            <p>
-              A few helpful answers to common questions about our IT
-              staffing and technology solutions.
-            </p>
-            <a href="/contact" className="home-v2-text-link">
-              Talk to our team <ArrowRight size={18} />
-            </a>
-          </div>
-
-          <div className="home-v2-faq-list">
-            {faqs.map(({ question, answer }) => (
-              <details key={question}>
-                <summary>
-                  {question}
-                  <span className="home-v2-faq-plus">+</span>
-                </summary>
-                <p>{answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      
+      <DisciplinesSection />
+      <TechnologyMarquee />
+      <WhyUsSection />
+      <TeamSection />
+      <EngagementSection />
+      <ProcessSection />
     </main>
   );
 }
