@@ -701,7 +701,7 @@ export default function About() {
             <p>At Deploy Optiq IQ, we believe talent has no boundaries and every great idea deserves an opportunity to grow. We are committed to making a meaningful difference by connecting skilled people with opportunities, empowering businesses through technology, and creating solutions that help individuals and organizations thrive.</p>
             <a href="#contact" className="ab-link light">See How We Make a Difference <span aria-hidden="true">→</span></a>
           </div>
-          <div className="ab-commit__img"><Img src={IMG.commit} alt="Our commitment" /></div>
+          <div className="ab-commit__img"><Img className="ab-commit-image" src={IMG.commit} alt="Deploy Optiq IQ team commitment" /></div>
         </div>
       </section>
 

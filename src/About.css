@@ -2049,3 +2049,46 @@
     line-height: 1.4 !important;
   }
 }
+/* Commitment Section Image */
+.about-page .ab-commit {
+  background: #f4512c;
+}
+
+.about-page .ab-commit__img {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f4512c;
+}
+
+.about-page .ab-commit-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+/* Commitment Image - Fix Orange Tint */
+.about-page .ab-commit__img {
+  background: #f4512c;
+  overflow: hidden;
+}
+
+.about-page .ab-commit-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+
+  /* Remove orange tint */
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
