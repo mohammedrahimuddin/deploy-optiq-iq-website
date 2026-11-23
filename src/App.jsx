@@ -1077,9 +1077,16 @@ function App() {
       <>
         <Hero
           tag="ABOUT DEPLOY OPTIQ IQ"
-          title="Technology with purpose. "
-          accent="People at the centre."
-          desc="We bring people, technology, and business ideas together to create meaningful digital experiences. Our focus is on understanding challenges and exploring practical ways to help businesses move forward."
+          title="Small teams of
+designers and
+developers. "
+          accent="collaborating closely
+with clients."
+          desc="With backgrounds across Design,
+Development and Product
+Strategy, our team of expert
+product strategists are here to help
+you succeed.."
         />
         <About />
       </>

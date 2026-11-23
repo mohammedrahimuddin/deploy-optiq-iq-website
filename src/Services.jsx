@@ -495,32 +495,32 @@ export default function Services() {
           <div className="srv-highlight">
             <Users aria-hidden="true" />
             <div>
-              <strong>People</strong>
-              <span>Technology Talent</span>
+              <strong>200</strong>
+              <span>Active Clients</span>
             </div>
           </div>
 
           <div className="srv-highlight">
             <Globe aria-hidden="true" />
             <div>
-              <strong>Global</strong>
-              <span>Technology Solutions</span>
+              <strong>16</strong>
+              <span>Industry Sectors</span>
             </div>
           </div>
 
           <div className="srv-highlight">
             <RefreshCw aria-hidden="true" />
             <div>
-              <strong>Flexible</strong>
-              <span>Engagement Models</span>
+              <strong>91%</strong>
+              <span>Client Retention</span>
             </div>
           </div>
 
           <div className="srv-highlight">
             <Handshake aria-hidden="true" />
             <div>
-              <strong>Collaborative</strong>
-              <span>Business Approach</span>
+              <strong>18</strong>
+              <span>Projects Delivered</span>
             </div>
           </div>
 

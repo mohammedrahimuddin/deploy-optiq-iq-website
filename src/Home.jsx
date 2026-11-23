@@ -1,6 +1,7 @@
-import React from "react";
+import { useRef } from "react";
 import {
   ArrowRight,
+  ArrowLeft,
   CheckCircle2,
   Code2,
   Database,
@@ -24,8 +25,8 @@ function HeroSection() {
 
           <h1>
             The Right Talent.
-            Smarter <span>Solutions.</span>
-            Better Business.
+            The Right <span>Technology.</span>
+            Built for What's Next.
           </h1>
 
           <p className="hero-description">
@@ -320,6 +321,318 @@ function TechnologyMarquee() {
   );
 }
 
+
+function TestimonialsSection() {
+  const trackRef = useRef(null);
+
+  const cards = [
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "SOFTWARE DEVELOPMENT",
+      quote:
+        "Turn your business ideas into reliable, scalable digital solutions with a team focused on quality and delivery.",
+      name: "Software Development",
+      role: "Custom Digital Solutions",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "ENGINEERING TEAMS",
+      quote:
+        "Build with the right technical expertise, collaborative teams and engineering support aligned with your goals.",
+      name: "IT Staffing",
+      role: "Flexible Engineering Teams",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "QUALITY ASSURANCE",
+      quote:
+        "Create dependable digital experiences through structured testing, quality checks and continuous improvement.",
+      name: "Quality Assurance",
+      role: "Testing & Quality",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "TECHNOLOGY SOLUTIONS",
+      quote:
+        "Choose practical technology solutions that help your business adapt, grow and work more efficiently.",
+      name: "IT Solutions",
+      role: "Technology Consulting",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "LONG-TERM PARTNERSHIP",
+      quote:
+        "From planning to ongoing support, keep your technology journey moving with a dependable development partner.",
+      name: "Project Partnership",
+      role: "End-to-End Support",
+    },
+  ];
+
+  const moveCarousel = (direction) => {
+    if (!trackRef.current) return;
+
+    const card = trackRef.current.querySelector(
+      ".home-ref-testimonial-card"
+    );
+
+    if (!card) return;
+
+    const gap = 22;
+    const distance = card.getBoundingClientRect().width + gap;
+
+    trackRef.current.scrollBy({
+      left: direction * distance,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <section className="home-ref-testimonials">
+
+      {/* LEFT BACKGROUND IMAGE */}
+      <div className="home-ref-testimonials-photo">
+        <img
+          src="/images/team-06.png"
+          alt="Deploy Optiq IQ team collaboration"
+          loading="lazy"
+        />
+      </div>
+
+      {/* RIGHT SIDE CONTENT */}
+      <div className="home-ref-testimonials-content">
+
+        
+<div className="home-ref-testimonials-heading">
+
+  <div className="home-ref-testimonials-title">
+    <h2>
+      Built on great partnerships.
+      <br />
+      Focused on <span>moving forward.</span>
+    </h2>
+
+    <p>
+      We bring together technology, expertise and collaboration
+      to help businesses build better digital solutions.
+    </p>
+  </div>
+
+  <a href="/services">
+    Our greatest hits <ArrowRight size={22} />
+  </a>
+
+</div>
+
+
+        {/* FIVE HORIZONTAL CARDS */}
+        <div
+          className="home-ref-testimonials-track"
+          ref={trackRef}
+        >
+          {cards.map((card, index) => (
+            <article
+              className="home-ref-testimonial-card"
+              key={index}
+            >
+
+              <div className="home-ref-testimonial-top">
+                <div className="home-ref-testimonial-logo">
+                  <span>DO</span>
+                  <strong>{card.logo}</strong>
+                </div>
+
+                <a
+                  href="/services"
+                  className="home-ref-testimonial-arrow"
+                  aria-label={`Explore ${card.name}`}
+                >
+                  <ArrowRight size={23} />
+                </a>
+              </div>
+
+              <div className="home-ref-testimonial-quote">
+                <span className="home-ref-quote-mark">"</span>
+                {card.quote}
+                <span className="home-ref-quote-mark">"</span>
+              </div>
+
+              <div className="home-ref-testimonial-person">
+                <strong>{card.name}</strong>
+                <span>{card.role}</span>
+              </div>
+
+            </article>
+          ))}
+        </div>
+
+        {/* CAROUSEL NAVIGATION */}
+        <div className="home-ref-testimonials-navigation">
+
+          <button
+            type="button"
+            onClick={() => moveCarousel(-1)}
+            aria-label="Previous testimonial"
+          >
+            <ArrowLeft size={21} />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => moveCarousel(1)}
+            aria-label="Next testimonial"
+          >
+            <ArrowRight size={21} />
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+
+
+
+function PartnersSection() {
+  return (
+    <section className="home-ref-partners">
+      <div className="home-ref-partners-container">
+
+        {/* LEFT SIDE TEXT */}
+        <div className="home-ref-partners-copy">
+          <span className="home-ref-partners-eyebrow">
+            OUR TECHNOLOGY ECOSYSTEM
+          </span>
+
+          <h2>
+            Built on the platforms
+            we rely on<span>.</span>
+          </h2>
+
+          <p>
+            We cover the technology stack and AI tools
+            that help businesses build, scale and innovate.
+          </p>
+
+          <a
+            href="/technologies"
+            className="home-ref-partners-link"
+          >
+            Explore our technology stack
+            <ArrowRight size={21} />
+          </a>
+        </div>
+
+        {/* RIGHT SIDE IMAGE */}
+        <div className="home-ref-partners-visual">
+          <img
+  src={`${import.meta.env.BASE_URL}images/technology-ecosystem.png.png`}
+  alt="Deploy Optiq IQ Technology Ecosystem"
+  loading="lazy"
+  decoding="async"
+/>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+function AwardsSection() {
+  const awards = [
+    {
+      name: "FINANCIAL TIMES",
+      subtitle: "America's Fastest-Growing Companies 2025",
+    },
+    {
+      name: "CIO 100",
+      subtitle: "Top 100 U.S. IT Innovators 2025",
+    },
+    {
+      name: "CLUTCH",
+      subtitle: "Top Software Developers 2025",
+    },
+    {
+      name: "OUTSOURCING 100",
+      subtitle: "Top Global Outsourcing Providers 2024",
+    },
+    {
+      name: "Inc. 5000",
+      subtitle: "America's Fastest-Growing Companies 2024",
+    },
+    {
+      name: "GLOBEE AWARDS",
+      subtitle: "Company of the Year 2024",
+    },
+  ];
+
+  return (
+    <section className="awards-section">
+      <div className="awards-black-box">
+
+        {/* LEFT CONTENT */}
+        <div className="awards-left">
+          <span className="awards-eyebrow">OUR AWARDS</span>
+
+          <h2>
+            <span>Excellence.</span>
+            Our minimum bar for client delivery.
+          </h2>
+
+          <p>
+            Our commitment to quality, technical expertise
+            and client success drives everything we do.
+          </p>
+
+          <a href="/about" className="awards-link">
+            Discover our commitment <span>↗</span>
+          </a>
+        </div>
+
+        {/* CENTRE STATISTICS */}
+        <div className="awards-stats">
+
+          <div className="stat-circle">
+            <div className="circle-text">
+              PROJECTS DELIVERED · PROJECTS DELIVERED ·
+            </div>
+            <div className="stat-content">
+              <strong>01</strong>
+              <span>Our focus</span>
+            </div>
+          </div>
+
+          <div className="stat-circle second-circle">
+            <div className="circle-text">
+              CLIENT RELATIONSHIP · CLIENT RELATIONSHIP ·
+            </div>
+            <div className="stat-content">
+              <strong>01</strong>
+              <span>Our priority</span>
+            </div>
+          </div>
+
+        </div>
+
+        {/* RIGHT AWARDS GRID */}
+        <div className="awards-grid">
+          {awards.map((award, index) => (
+            <div className="award-item" key={index}>
+              <div className="award-logo">
+                {award.name}
+              </div>
+              <p>{award.subtitle}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+
 function WhyUsSection() {
   return (
     <section className="home-ref-why">
@@ -423,16 +736,64 @@ function ProcessSection() {
   );
 }
 
+
+function FinalCTASection() {
+  return (
+    <section className="final-cta-section">
+      <div className="final-cta-container">
+
+        <div className="final-cta-content">
+          <h2>
+            Want to accelerate software
+            <br />
+            development at your company?
+            <span>See how we can help.</span>
+          </h2>
+
+          <a href="/contact" className="final-cta-button">
+            Schedule a Call
+            <ArrowRight size={18} />
+          </a>
+        </div>
+
+        <div className="final-cta-visual">
+          <div className="final-cta-image-back"></div>
+          <img
+            src="/images/Methodologies/methodology-cta-photo.png"
+            alt="Technology professionals collaborating"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+
+
+
 export default function Home() {
   return (
     <main className="home-page">
       <HeroSection />
       <DisciplinesSection />
       <TechnologyMarquee />
+
+      <PartnersSection />
+      <TestimonialsSection />
+
+      <AwardsSection />
       <WhyUsSection />
       <TeamSection />
       <EngagementSection />
       <ProcessSection />
+
+      {/* Final CTA - Immediately before footer */}
+      <FinalCTASection />
     </main>
   );
 }
+
+
+
