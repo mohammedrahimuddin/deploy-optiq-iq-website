@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="aiGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#F3EEFF"/>
+  <path d="M64 23 L73 48 L98 57 L73 66 L64 91 L55 66 L30 57 L55 48 Z" fill="url(#aiGradient)"/>
+  <path d="M96 78 L101 91 L114 96 L101 101 L96 114 L91 101 L78 96 L91 91 Z" fill="#8B5CF6"/>
+  <circle cx="32" cy="92" r="5" fill="#2563EB"/>
+  <circle cx="96" cy="31" r="4" fill="#8B5CF6"/>
+</svg>

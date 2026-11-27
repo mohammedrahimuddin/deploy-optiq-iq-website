@@ -1,121 +1,562 @@
+
 import React from "react";
 import {
-  ArrowRight,
-  Blocks,
-  Cloud,
-  Database,
-  Workflow,
-  ShieldCheck,
-  BrainCircuit,
-  Network,
-  MonitorSmartphone,
-  LineChart,
-  Settings2,
-  CheckCircle2,
-  Target,
-  Search,
-  Lightbulb,
-  Code2,
+  ShoppingCart,
   Rocket,
+  Palette,
+  Smartphone,
+  Apple,
+  Cloud,
+  Globe,
+  Workflow,
+  Cpu,
+  CircuitBoard,
+  Server,
+  Code2,
+  PanelsTopLeft,
   Layers3,
-  PlugZap,
+  MonitorSmartphone,
+  Building2,
+  Blocks,
+  Boxes,
+  ShieldCheck,
+  SearchCheck,
+  Gauge,
+  RefreshCw,
+  Fingerprint,
+  Database,
+  Settings,
+  LockKeyhole,
+  HardDrive,
+  TestTube2,
+  CheckCheck,
 } from "lucide-react";
+
 import PageHero from "./components/PageHero";
 import "./Solutions.css";
 
-const solutionAreas = [
+/* =========================================================
+   SOFTWARE DEVELOPMENT & DESIGN
+========================================================= */
+
+const developmentServices = [
   {
-    icon: Blocks,
-    number: "01",
-    title: "Custom Digital Platforms",
-    text: "Plan and build digital platforms around the way your business works, your users' needs, and your next stage of growth.",
-    points: ["Business-specific applications", "Web-based platforms", "Product development support"],
+    icon: ShoppingCart,
+    title: "E-commerce Development",
+    text: "Deploy fast and scalable online retail platforms that improve the customer experience and conversion rates.",
+  },
+  {
+    icon: Rocket,
+    title: "MVP Development",
+    text: "Test market viability and gather feedback with the rapid development of minimal viable products.",
+  },
+  {
+    icon: Palette,
+    title: "UX",
+    text: "Design intuitive and engaging user experiences to enhance customer satisfaction and product usability.",
+  },
+  {
+    icon: Smartphone,
+    title: "Android App Development",
+    text: "Build native apps for products that run on Android, accessible via Play Store.",
+  },
+  {
+    icon: Apple,
+    title: "iOS App Development",
+    text: "Build native apps for the Apple ecosystem and products for the iPad and iPod, accessed via App Store.",
   },
   {
     icon: Cloud,
-    number: "02",
-    title: "Cloud & Infrastructure Solutions",
-    text: "Explore cloud-based environments and infrastructure approaches that support flexibility, availability, and changing workloads.",
-    points: ["Cloud adoption planning", "Application modernization", "Infrastructure support"],
+    title: "Serverless",
+    text: "Develop and deploy applications without managing servers, allowing for automatic scaling and cost-effective, pay-as-you-go resource utilization.",
   },
   {
-    icon: Database,
-    number: "03",
-    title: "Data & Business Intelligence",
-    text: "Bring information into a clearer structure and make it easier for teams to understand operations and make informed decisions.",
-    points: ["Data integration", "Dashboards and reporting", "Business insights"],
-  },
-  {
-    icon: BrainCircuit,
-    number: "04",
-    title: "AI & Intelligent Automation",
-    text: "Identify practical opportunities to use AI and automation to support everyday workflows and reduce repetitive effort.",
-    points: ["AI-enabled workflows", "Process automation", "Machine learning use cases"],
+    icon: Globe,
+    title: "Web Application Development",
+    text: "Develop dynamic and responsive web applications optimized for performance and scalability.",
   },
   {
     icon: Workflow,
-    number: "05",
-    title: "System Integration",
-    text: "Connect applications, data, and business processes so information can move more consistently across your technology environment.",
-    points: ["Application integration", "API-based connectivity", "Workflow coordination"],
+    title: "Agile",
+    text: "Implement an iterative, flexible approach to project management that adapts to changing requirements and encourages continuous improvement.",
+  },
+  {
+    icon: Cpu,
+    title: "Firmware",
+    text: "Develop and optimize low-level software embedded in hardware devices to control functionality and ensure seamless interaction with higher-level systems.",
+  },
+  {
+    icon: CircuitBoard,
+    title: "FPGA",
+    text: "Design and configure custom hardware logic on field-programmable gate arrays to achieve high-performance, flexible, and efficient computing solutions.",
+  },
+  {
+    icon: Server,
+    title: "Back-End Development",
+    text: "Create robust, scalable, and secure server-side logic that powers websites and apps behind the scenes.",
+  },
+  {
+    icon: Code2,
+    title: "Front-End Development",
+    text: "Craft intuitive, user-friendly interfaces tailored to your brand.",
+  },
+  {
+    icon: PanelsTopLeft,
+    title: "UI",
+    text: "Design visually engaging and user-friendly interfaces that align with your brand and enhance usability.",
+  },
+  {
+    icon: Blocks,
+    title: "Custom Software Development",
+    text: "Design and build software around your specific business needs.",
+  },
+  {
+    icon: Layers3,
+    title: "Web Design",
+    text: "Craft visually appealing and user-friendly website designs to enhance user experience and online brand presence.",
+  },
+  {
+    icon: Database,
+    title: "SaaS",
+    text: "Deliver software applications over the internet as a service, allowing users to access them without local installation.",
+  },
+  {
+    icon: MonitorSmartphone,
+    title: "Mobile App Development",
+    text: "Design and develop mobile applications for smartphones and tablets to engage users across your platforms.",
+  },
+  {
+    icon: Smartphone,
+    title: "Native App Development",
+    text: "Create platform-specific native applications optimized for performance and user experience on devices like iOS and Android.",
+  },
+  {
+    icon: Building2,
+    title: "Enterprise Software Development",
+    text: "Develop scalable and robust software solutions tailored to meet the specific needs of large organizations.",
+  },
+  {
+    icon: Boxes,
+    title: "dApp Development",
+    text: "Build decentralized applications (dApps) on blockchain platforms for secure and transparent business solutions.",
+  },
+  {
+    icon: Blocks,
+    title: "Hybrid App Development",
+    text: "Develop cross-platform applications with a single codebase for faster deployment and a native-like user experience.",
+  },
+];
+
+/* =========================================================
+   QA, TESTING, MAINTENANCE & MODERNIZATION
+========================================================= */
+
+const qualityServices = [
+  {
+    icon: RefreshCw,
+    title: "Legacy Application Migration",
+    text: "Modernize outdated systems by migrating legacy applications to contemporary platforms and technologies.",
+  },
+  {
+    icon: TestTube2,
+    title: "Manual Testing",
+    text: "Perform thorough manual checks to identify software defects and ensure quality from a user's perspective before release.",
+  },
+  {
+    icon: Gauge,
+    title: "Performance Testing",
+    text: "Assess software performance under various conditions to ensure stability, speed, and scalability before deployment.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Digital Transformation",
+    text: "Guide businesses through integrating digital technologies to fundamentally improve operations and customer value delivery.",
+  },
+  {
+    icon: Fingerprint,
+    title: "Penetration Testing",
+    text: "Proactively detect and address security vulnerabilities by simulating real-world cyberattacks on your systems.",
+  },
+  {
+    icon: Database,
+    title: "ETL",
+    text: "Extract, transform, and load data from various sources into a unified system for seamless data integration and analysis.",
+  },
+  {
+    icon: SearchCheck,
+    title: "Software Testing & QA",
+    text: "Run comprehensive QA and software tests to ensure exceptional software quality, functionality, and performance.",
   },
   {
     icon: ShieldCheck,
-    number: "06",
-    title: "Security & Reliability",
-    text: "Build with attention to responsible access, dependable systems, and quality practices throughout the solution lifecycle.",
-    points: ["Security-aware design", "Quality and testing", "Reliability considerations"],
+    title: "Cybersecurity",
+    text: "Protect your digital assets and infrastructure from threats and breaches with our state-of-the-art cybersecurity services.",
+  },
+  {
+    icon: Workflow,
+    title: "DevOps",
+    text: "Shorten the software development lifecycle, and get faster, more reliable CI/CD.",
+  },
+  {
+    icon: HardDrive,
+    title: "Backup Solutions",
+    text: "Ensure data safety and business continuity by providing reliable backup and recovery systems for critical information.",
+  },
+  {
+    icon: Settings,
+    title: "Automation Testing",
+    text: "Implement automated testing processes to increase efficiency and accuracy in identifying software defects and ensuring quality.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "Security Testing",
+    text: "Evaluate software security to identify vulnerabilities and protect against threats and breaches.",
   },
 ];
 
-const outcomes = [
-  { icon: Target, title: "A clearer direction", text: "Translate business goals into a practical technology roadmap and prioritized next steps." },
-  { icon: Network, title: "Connected operations", text: "Reduce disconnected tools and improve how systems, teams, and information work together." },
-  { icon: LineChart, title: "Room to scale", text: "Consider maintainability, performance, and future requirements as your business evolves." },
-  { icon: Settings2, title: "A fit-for-purpose approach", text: "Focus on the requirements that matter instead of adding technology without a clear reason." },
+/* =========================================================
+   CLOUD & ADVANCED TECHNOLOGIES
+========================================================= */
+
+const advancedTechnologies = [
+  {
+    title: "Augmented Reality",
+    text: "Enhance real-world environments by overlaying digital information and interactive elements through AR technology on devices like smartphones or glasses.",
+  },
+  {
+    title: "RPA",
+    text: "Automate repetitive, rule-based tasks with software bots to boost efficiency and reduce errors in business processes.",
+  },
+  {
+    title: "Deep Learning",
+    text: "Implement deep learning algorithms and neural networks to solve complex problems and enable advanced AI capabilities.",
+  },
+  {
+    title: "NFT",
+    text: "Mint and trade unique digital assets on the blockchain, ensuring verifiable ownership and authenticity.",
+  },
+  {
+    title: "Virtual Reality",
+    text: "Develop immersive virtual reality experiences that simulate environments for entertainment, education, or training.",
+  },
+  {
+    title: "Metaverse",
+    text: "Create immersive, interconnected virtual environments that blend digital and physical worlds for interactive collaboration, social engagement, and commerce.",
+  },
+  {
+    title: "LMS",
+    text: "Provide a centralized platform for creating, delivering, and managing online courses and training programs.",
+  },
+  {
+    title: "Cloud Migration",
+    text: "Migrate on-premise infrastructure and applications to the cloud, increasing scalability, reducing costs, and improving overall system efficiency.",
+  },
+  {
+    title: "Computer Vision",
+    text: "Enable machines to interpret and understand visual data to automate tasks like image recognition and analysis.",
+  },
+  {
+    title: "Data Warehouse",
+    text: "Consolidate and store organizational data in a centralized repository to enable efficient analysis and informed decision-making.",
+  },
+  {
+    title: "Big Data",
+    text: "Process and analyze massive volumes of data from diverse sources to uncover actionable insights and drive informed decision-making.",
+  },
+  {
+    title: "Data Mining",
+    text: "Extract valuable patterns and insights from large datasets to support informed decision-making processes.",
+  },
+  {
+    title: "Data Management",
+    text: "Organize and maintain data effectively to ensure accuracy, accessibility, and security throughout its lifecycle.",
+  },
+  {
+    title: "Cloud Computing",
+    text: "Enhance data storage and processing with scalable and efficient cloud infrastructure.",
+  },
+  {
+    title: "Machine Learning",
+    text: "Our specialized ML approach helps you develop, train, and deploy models that enhance prediction, automate processes, and drive innovation.",
+  },
 ];
 
-const approach = [
-  { icon: Search, step: "01", title: "Understand", text: "We start by learning about your business context, users, current systems, constraints, and desired outcomes." },
-  { icon: Lightbulb, step: "02", title: "Shape the solution", text: "We identify possible approaches, define priorities, and align the solution direction with your requirements." },
-  { icon: Code2, step: "03", title: "Build & connect", text: "The agreed solution is developed or configured, with integration and quality considerations built into the work." },
-  { icon: Rocket, step: "04", title: "Review & evolve", text: "We review progress with you and identify sensible improvements as needs and priorities change." },
+/* =========================================================
+   BUSINESS & DIGITAL SOLUTIONS
+========================================================= */
+
+const businessDigitalSolutions = [
+  {
+    title: "Digital Wallets & Cryptocurrency",
+    text: "Build secure digital payment solutions and benefit from our extensive cryptocurrency development expertise.",
+  },
+  {
+    title: "Business Intelligence",
+    text: "Use data analysis to make informed business decisions and drive faster growth.",
+  },
+  {
+    title: "ERP Development",
+    text: "Implement integrated systems to manage and streamline core business processes across your organization.",
+  },
+  {
+    title: "Chatbots",
+    text: "Develop intelligent chatbots to automate customer interactions, improve engagement, and streamline support services.",
+  },
+  {
+    title: "CMS",
+    text: "Offer customizable Content Management Systems to simplify the creation, management, and modification of website content.",
+  },
+  {
+    title: "CRM",
+    text: "Implement Customer Relationship Management solutions to manage customer interactions, enhance relationships, and drive sales growth.",
+  },
+  {
+    title: "Smart Contract",
+    text: "Automate and enforce agreements on the blockchain, enabling secure, tamper-proof transactions without intermediaries.",
+  },
+  {
+    title: "Data Analytics",
+    text: "Transform raw data into actionable insights using advanced analytics techniques to inform strategic business decisions.",
+  },
+  {
+    title: "Data Science",
+    text: "Extract actionable insights from large data sets using advanced statistical and computational techniques.",
+  },
+  {
+    title: "Database Development",
+    text: "Create, manage and optimize databases to ensure efficient data storage and retrieval for businesses.",
+  },
+  {
+    title: "Data Visualization",
+    text: "Present complex data visually through charts and interactive dashboards to facilitate better understanding and analysis.",
+  },
+  {
+    title: "POS",
+    text: "Centralize and streamline in-store and online transactions while managing inventory and customer data for seamless retail operations.",
+  },
+  {
+    title: "DeFi",
+    text: "Utilize blockchain technology to create transparent, trustless financial services and products without relying on traditional intermediaries.",
+  },
 ];
 
-const faqs = [
-  {
-    q: "What is the difference between Services and Solutions?",
-    a: "Services describe the capabilities and support we provide, such as software development, IT staffing, and consulting. Solutions show how technology capabilities can be brought together to address a business need or challenge.",
-  },
-  {
-    q: "Can a solution be tailored to our business?",
-    a: "Yes. The starting point is understanding your requirements, existing environment, users, and priorities. The proposed approach can then be shaped around that context.",
-  },
-  {
-    q: "Do we need to know the technology before contacting you?",
-    a: "No. You can begin with the business challenge or outcome you want to achieve. The technology options can be explored as part of the discovery and planning discussion.",
-  },
-  {
-    q: "Can you work with our existing systems?",
-    a: "Existing systems and constraints should be reviewed during discovery. That helps determine whether integration, enhancement, modernization, or a different approach is most suitable.",
-  },
-];
+/* =========================================================
+   SERVICE CARD
+========================================================= */
 
-function SectionHeading({ eyebrow, title, text, centered = false }) {
+function ServiceCard({ item }) {
   return (
-    <div className={`solp-heading ${centered ? "is-centered" : ""}`}>
-      <span className="solp-eyebrow">{eyebrow}</span>
-      <h2>{title}</h2>
-      {text && <p>{text}</p>}
-    </div>
+    <article className="solp-service-card">
+      <h3>{item.title}</h3>
+      <p>{item.text}</p>
+    </article>
   );
 }
 
-export default function Solutions() {
-  const [openFaq, setOpenFaq] = React.useState(-1);
+/* =========================================================
+   COMMON SERVICE SECTION
+   Supports a separate icon above the heading.
+========================================================= */
 
+function ServiceSection({
+  title,
+  items,
+  id,
+  icon: Icon,
+  iconColor,
+}) {
+  return (
+    <section className="solp-service-section" id={id}>
+      <div className="solp-container">
+        <div className="solp-service-heading">
+          {Icon && (
+            <Icon
+              className="solp-service-heading-icon"
+              size={36}
+              strokeWidth={2.5}
+              style={{ color: iconColor }}
+              aria-hidden="true"
+            />
+          )}
+
+          <h2>{title}</h2>
+        </div>
+
+        <div className="solp-service-grid">
+          {items.map((item) => (
+            <ServiceCard key={item.title} item={item} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   CLOUD & ADVANCED TECHNOLOGIES SECTION
+========================================================= */
+
+function TechnologySection() {
+  return (
+    <section className="solp-tech-section">
+      <div className="solp-container">
+        <div className="solp-tech-heading">
+          <Cloud size={31} strokeWidth={2.3} />
+          <h2>Cloud &amp; Advanced Technologies</h2>
+        </div>
+
+        <div className="solp-tech-grid">
+          {advancedTechnologies.map((item) => (
+            <article className="solp-tech-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   BUSINESS & DIGITAL SOLUTIONS SECTION
+========================================================= */
+
+function BusinessDigitalSection() {
+  return (
+    <section className="solp-business-section">
+      <div className="solp-container">
+        <div className="solp-business-heading">
+          <Smartphone size={30} strokeWidth={2.2} />
+          <h2>Business &amp; Digital Solutions</h2>
+        </div>
+
+        <div className="solp-tech-grid">
+          {businessDigitalSolutions.map((item) => (
+            <article className="solp-tech-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   TECHNOLOGY MARQUEE
+========================================================= */
+
+const techRowOne = [
+  "Rails",
+  "Cursor",
+  "Node.js",
+  "Claude Code",
+  "Java",
+  "Codex",
+  "React",
+  "GitHub Copilot",
+  "Python",
+  "Next.js",
+  "TypeScript",
+  "AWS",
+];
+
+const techRowTwo = [
+  "Vue.js",
+  "C++",
+  "JavaScript",
+  "Swift",
+  "Angular",
+  "Gemini",
+  "PHP",
+  "Ollama",
+  "Android",
+  "React Native",
+  "Docker",
+  "MongoDB",
+];
+
+function TechnologyMarquee() {
+  return (
+    <section className="solp-marquee-section">
+      <div className="solp-marquee-heading">
+        <h2>
+          Yes, we cover the tech stack and AI coding tools you rely on.
+          <span>.</span>
+        </h2>
+
+        <p>
+          Our team has expertise in 100+ technologies and programming
+          languages, including the AI coding tools rewriting how software gets built.
+        </p>
+      </div>
+
+      {/* First row: moves right */}
+      <div className="solp-marquee-track">
+        <div className="solp-marquee-content solp-marquee-right">
+          {[...techRowOne, ...techRowOne].map((tech, index) => (
+            <span key={index}>{tech}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Second row: moves left */}
+      <div className="solp-marquee-track">
+        <div className="solp-marquee-content solp-marquee-left">
+          {[...techRowTwo, ...techRowTwo].map((tech, index) => (
+            <span key={index}>{tech}</span>
+          ))}
+        </div>
+      </div>
+
+      <a href="/technologies" className="solp-marquee-link">
+        All technologies we work with <span>→</span>
+      </a>
+    </section>
+  );
+}
+
+/* =========================================================
+   DISCOVERY CTA SECTION
+========================================================= */
+
+function DiscoveryCTA() {
+  return (
+    <section className="solp-discovery">
+      <div className="solp-container solp-discovery-inner">
+        <div className="solp-discovery-content">
+          <h2>
+            Want to accelerate software
+            development at your company?
+            <span>See how we can help.</span>
+          </h2>
+
+          <a href="/contact" className="solp-discovery-button">
+            Book a Discovery Call
+          </a>
+        </div>
+
+        <div className="solp-discovery-image">
+          <img
+            src="/images/about/technology-team.jpg"
+            alt="Team collaborating on a software project"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   MAIN SOLUTIONS PAGE
+========================================================= */
+
+export default function Solutions() {
   return (
     <main className="solutions-page">
+      {/* HERO SECTION */}
       <PageHero
         tag="DEPLOY OPTIQ IQ · DIGITAL & TECHNOLOGY SOLUTIONS"
         title="Technology that works"
@@ -129,115 +570,35 @@ export default function Solutions() {
         proof="Start with the business need. Build toward a practical solution."
       />
 
-      <section className="solp-intro">
-        <div className="solp-intro-inner solp-container">
-          <span className="solp-eyebrow">SOLUTIONS THAT START WITH YOU</span>
-          <h2>Technology should solve a <span>business problem</span>—not create another one.</h2>
-          <p>Every organization has different goals, systems, and ways of working. Deploy Optiq IQ takes a requirement-led approach: understand the challenge, explore the right combination of capabilities, and shape a solution that can support the way your business moves forward.</p>
-          <a className="solp-button solp-button-coral solp-intro-button" href="/contact">Talk through a business challenge <ArrowRight size={17} /></a>
-        </div>
-      </section>
+      {/* 1. SOFTWARE DEVELOPMENT & DESIGN */}
+      <ServiceSection
+        id="software-development-design"
+        title="Software Development & Design"
+        items={developmentServices}
+        icon={Code2}
+        iconColor="#ff684e"
+      />
 
-      <section className="solp-areas solp-section-soft">
-        <div className="solp-container">
-          <SectionHeading
-            eyebrow="OUR SOLUTION AREAS"
-            title="Connected capabilities. Practical outcomes."
-            text="Explore the technology areas we can discuss and shape around your business requirements."
-            centered
-          />
-          <div className="solp-area-grid">
-            {solutionAreas.map(({ icon: Icon, number, title, text, points }) => (
-              <article className="solp-area-card" key={number}>
-                <div className="solp-card-top"><span className="solp-card-icon"><Icon size={24} /></span><span className="solp-card-number">{number}</span></div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <ul>{points.map((point) => <li key={point}><CheckCircle2 size={15} />{point}</li>)}</ul>
-                <a href="/contact" aria-label={`Discuss ${title}`}>Discuss this area <ArrowRight size={16} /></a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 2. QA, TESTING, MAINTENANCE & MODERNIZATION */}
+      <ServiceSection
+        id="qa-testing-maintenance"
+        title="QA, Testing, Maintenance & Modernization"
+        items={qualityServices}
+        icon={CheckCheck}
+        iconColor="#f5a900"
+      />
 
-      <section className="solp-outcomes solp-container">
-        <div className="solp-outcomes-copy">
-          <span className="solp-eyebrow">BUILT AROUND BUSINESS VALUE</span>
-          <h2>Start with what needs to work better.</h2>
-          <p>A useful technology solution is measured by how well it supports people, processes, and business priorities. The right approach depends on your context—not on choosing the newest tool.</p>
-          <a className="solp-button solp-button-dark" href="/contact">Explore an approach with us <ArrowRight size={17} /></a>
-        </div>
-        <div className="solp-outcome-grid">
-          {outcomes.map(({ icon: Icon, title, text }) => (
-            <article className="solp-outcome-card" key={title}>
-              <span><Icon size={22} /></span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      {/* 3. CLOUD & ADVANCED TECHNOLOGIES */}
+      <TechnologySection />
 
-      <section className="solp-approach solp-section-soft">
-        <div className="solp-container">
-          <SectionHeading
-            eyebrow="HOW WE APPROACH A SOLUTION"
-            title="From business challenge to a considered way forward."
-            text="A collaborative path helps keep the work connected to the reason it started."
-            centered
-          />
-          <div className="solp-steps">
-            {approach.map(({ icon: Icon, step, title, text }, index) => (
-              <article className="solp-step" key={step}>
-                <div className="solp-step-top"><span className="solp-step-icon"><Icon size={22} /></span><span className="solp-step-number">{step}</span></div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                {index < approach.length - 1 && <span className="solp-step-arrow"><ArrowRight size={19} /></span>}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 4. BUSINESS & DIGITAL SOLUTIONS */}
+      <BusinessDigitalSection />
 
-      <section className="solp-fit solp-container">
-        <div className="solp-fit-panel">
-          <div className="solp-fit-icon"><PlugZap size={30} /></div>
-          <div>
-            <span className="solp-eyebrow">ONE CONNECTED PICTURE</span>
-            <h2>Bring your people, platforms, and processes into the conversation.</h2>
-            <p>Solutions may involve one focused improvement or several connected capabilities. We begin by understanding what you already have and what you want to achieve.</p>
-          </div>
-          <a className="solp-button solp-button-light" href="/outsourcing">Explore outsourcing <ArrowRight size={17} /></a>
-        </div>
-      </section>
+      {/* 5. TECHNOLOGY MARQUEE */}
+      <TechnologyMarquee />
 
-      <section className="solp-faq solp-section-soft">
-        <div className="solp-container solp-faq-layout">
-          <div>
-            <span className="solp-eyebrow">GOOD TO KNOW</span>
-            <h2>Questions about our solutions?</h2>
-            <p>Here are a few things businesses often want to understand before starting a conversation.</p>
-            <a className="solp-text-link" href="/contact">Ask us a question <ArrowRight size={17} /></a>
-          </div>
-          <div className="solp-faq-list">
-            {faqs.map(({ q, a }, index) => (
-              <article className={`solp-faq-item ${openFaq === index ? "is-open" : ""}`} key={q}>
-                <button type="button" onClick={() => setOpenFaq(openFaq === index ? -1 : index)} aria-expanded={openFaq === index}>
-                  <span>{q}</span><span className="solp-faq-plus">{openFaq === index ? "−" : "+"}</span>
-                </button>
-                {openFaq === index && <p>{a}</p>}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="solp-cta solp-container">
-        <div className="solp-cta-inner">
-          <div><span className="solp-eyebrow">LET'S FIND THE RIGHT DIRECTION</span><h2>Have a business challenge in mind?</h2><p>Tell us what you are trying to improve. We can start with the requirement and explore the next step together.</p></div>
-          <a className="solp-button solp-button-coral" href="/contact">Start a conversation <ArrowRight size={18} /></a>
-        </div>
-      </section>
+      {/* 6. BLACK DISCOVERY CTA */}
+      <DiscoveryCTA />
     </main>
   );
 }

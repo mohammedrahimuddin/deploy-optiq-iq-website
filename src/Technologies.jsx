@@ -1,311 +1,938 @@
-import React, { useMemo, useState } from "react";
-import {
-  Search, ArrowRight, ArrowUpRight, CheckCircle2, Code2, BrainCircuit,
-  Cloud, Smartphone, Database, Server, Layers3, Sparkles, ShieldCheck,
-  Workflow, Gauge, X
-} from "lucide-react";
-import PageHero from "./components/PageHero";
-import "./Technologies.css";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import './Technologies.css';
 
-const technologyGroups = [
-  {
-    name: "AI & Data",
-    short: "AI",
-    description: "Build intelligent experiences and turn information into useful direction.",
-    icon: BrainCircuit,
-    technologies: ["Artificial Intelligence", "Generative AI", "Machine Learning", "LLMs", "Python", "TensorFlow", "PyTorch"],
-  },
-  {
-    name: "Cloud & DevOps",
-    short: "CLOUD",
-    description: "Support dependable infrastructure, deployment workflows, and scalable services.",
-    icon: Cloud,
-    technologies: ["AWS", "Microsoft Azure", "Google Cloud", "Docker", "Kubernetes", "Firebase", "Jenkins"],
-  },
-  {
-    name: "Frontend",
-    short: "UI",
-    description: "Create accessible, responsive interfaces that make digital products easy to use.",
-    icon: Code2,
-    technologies: ["React", "Next.js", "Angular", "Vue.js", "JavaScript", "TypeScript", "HTML & CSS"],
-  },
-  {
-    name: "Backend",
-    short: "API",
-    description: "Develop application logic, APIs, and services that connect product experiences.",
-    icon: Server,
-    technologies: ["Node.js", "Express", "Django", "Java", "Spring Boot", ".NET", "PHP"],
-  },
-  {
-    name: "Mobile",
-    short: "APP",
-    description: "Shape mobile experiences for the devices and journeys your customers use.",
-    icon: Smartphone,
-    technologies: ["Android", "iOS", "Flutter", "React Native", "Kotlin", "Swift"],
-  },
-  {
-    name: "Databases",
-    short: "DATA",
-    description: "Organize, query, and manage application data with suitable storage technologies.",
-    icon: Database,
-    technologies: ["PostgreSQL", "MySQL", "MongoDB", "SQL Server", "Redis", "Elasticsearch"],
-  },
+/* ---------------------------------------------------------
+   LOGO FILES
+   Place logos inside public/images/technologies/
+--------------------------------------------------------- */
+
+
+const IMG_BASE = '/images/technologies';
+const LOGO_EXT = 'svg';
+
+// Map JSX technology filenames to actual downloaded SVG filenames
+const LOGO_FILE_MAP = {
+  'c-plus-plus': 'cplusplus',
+  'claude-code': 'claude',
+  'github-copilot': 'githubcopilot',
+  'gemini': 'googlegemini',
+  'google-cloud': 'googlecloud',
+  'kafka': 'apachekafka',
+  'ios': 'apple',
+  'nodejs': 'nodedotjs',
+  'progressive-web-app': 'pwa',
+  'red-hat-openshift': 'redhatopenshift',
+  'ruby-on-rails': 'rubyonrails',
+  'spring-boot': 'spring',
+  'vue': 'vuedotjs',
+};
+
+// Generate the correct image path
+const logo = (file) =>
+  `${IMG_BASE}/${LOGO_FILE_MAP[file] || file}.${LOGO_EXT}`;
+
+// Bottom proof section image
+const PROOF_IMAGE = `${IMG_BASE}/stopped-counting.jpg`;
+
+// Technology data helper
+const t = (name, file, size) => ({
+  name,
+  file,
+  size,
+});
+
+
+/* ---------------------------------------------------------
+   TECHNOLOGY DATA
+--------------------------------------------------------- */
+
+const TECHNOLOGIES = [
+  // A
+  t('AI', 'ai'),
+  t('Amazon Web Services', 'amazon-web-services'),
+  t('Android', 'android'),
+  t('Angular', 'angular'),
+  t('API', 'api', 'lg'),
+  t('ASP.NET', 'asp-net'),
+  t('Azure', 'azure'),
+
+  // B
+  t('Blockchain', 'blockchain'),
+
+  // C
+  t('C', 'c'),
+  t('C#', 'c-sharp'),
+  t('C++', 'c-plus-plus'),
+  t('Cardano', 'cardano', 'sm'),
+  t('Chaos Monkey', 'chaos-monkey'),
+  t('Claude Code', 'claude-code'),
+  t('Codex', 'codex'),
+  t('Copilot', 'copilot'),
+  t('Cryptocurrency', 'cryptocurrency', 'sm'),
+  t('Cursor', 'cursor'),
+
+  // D
+  t('Dart', 'dart', 'lg'),
+  t('Django', 'django', 'lg'),
+  t('Docker', 'docker'),
+  t('Drupal', 'drupal'),
+
+  // E
+  t('Elasticsearch', 'elasticsearch', 'sm'),
+  t('Elixir', 'elixir'),
+  t('Express', 'express'),
+
+  // F
+  t('Firebase', 'firebase'),
+  t('Flutter', 'flutter'),
+
+  // G
+  t('Gemini', 'gemini'),
+  t('Generative AI', 'generative-ai', 'sm'),
+  t('GIS', 'gis', 'lg'),
+  t('Github Copilot', 'github-copilot'),
+  t('Go', 'go', 'lg'),
+  t('Google Cloud', 'google-cloud', 'sm'),
+  t('Grails', 'grails'),
+  t('GraphQL', 'graphql'),
+
+  // H
+  t('HTML5', 'html5'),
+  t('HubSpot', 'hubspot'),
+
+  // I
+  t('Ionic', 'ionic'),
+  t('iOS', 'ios', 'lg'),
+  t('IoT', 'iot'),
+
+  // J
+  t('Java', 'java', 'sm'),
+  t('JavaScript', 'javascript', 'sm'),
+
+  // K
+  t('Kafka', 'kafka'),
+  t('Kotlin', 'kotlin'),
+  t('Kubernetes', 'kubernetes', 'sm'),
+
+  // L
+  t('Laravel', 'laravel'),
+  t('LLM', 'llm', 'lg'),
+
+  // M
+  t('Magento', 'magento'),
+  t('MongoDB', 'mongodb'),
+  t('Mulesoft', 'mulesoft'),
+  t('MySQL', 'mysql'),
+
+  // N
+  t('.NET', 'dotnet', 'lg'),
+  t('Node.js', 'nodejs'),
+  t('NoSQL', 'nosql'),
+
+  // O
+  t('Objective-C', 'objective-c'),
+  t('Ollama', 'ollama'),
+  t('Oracle', 'oracle'),
+
+  // P
+  t('Perl', 'perl'),
+  t('PHP', 'php'),
+  t('PostgreSQL', 'postgresql'),
+  t('Progressive Web App', 'progressive-web-app'),
+  t('Python', 'python'),
+
+  // R
+  t('React', 'react'),
+  t('React Native', 'react-native', 'sm'),
+  t('Red Hat OpenShift', 'red-hat-openshift', 'sm'),
+  t('Replit', 'replit'),
+  t('Ruby', 'ruby'),
+  t('Ruby on Rails', 'ruby-on-rails'),
+  t('Rust', 'rust', 'lg'),
+
+  // S
+  t('SaaS', 'saas'),
+  t('Salesforce', 'salesforce'),
+  t('SAP', 'sap', 'lg'),
+  t('Scala', 'scala', 'lg'),
+  t('Selenium', 'selenium', 'sm'),
+  t('ServiceNow', 'servicenow'),
+  t('SharePoint', 'sharepoint'),
+  t('Shopify', 'shopify'),
+  t('Spring Boot', 'spring-boot'),
+  t('SQL Server', 'sql-server', 'sm'),
+  t('Swift', 'swift', 'lg'),
+  t('Symfony', 'symfony'),
+
+  // T
+  t('Tableau', 'tableau', 'sm'),
+  t('Typescript', 'typescript'),
+
+  // U
+  t('Unity', 'unity'),
+
+  // V
+  t('Vue', 'vue'),
+
+  // W
+  t('Windsurf', 'windsurf'),
+  t('WordPress', 'wordpress'),
+
+  // X
+  t('Xamarin', 'xamarin'),
 ];
 
-const principles = [
-  {
-    number: "01",
-    title: "Start with the requirement",
-    text: "We look at the product, users, constraints, and intended outcome before narrowing down technology choices.",
-    icon: Workflow,
-  },
-  {
-    number: "02",
-    title: "Choose for fit, not fashion",
-    text: "The right stack is the one that fits the use case, team capability, integration needs, and operating context.",
-    icon: Layers3,
-  },
-  {
-    number: "03",
-    title: "Build for what comes next",
-    text: "Maintainability, security, performance, and room to evolve should be part of the conversation from the start.",
-    icon: Gauge,
-  },
-];
+/* ---------------------------------------------------------
+   CATEGORY FILTERS
+--------------------------------------------------------- */
 
-const deliverySteps = [
-  ["Understand", "Clarify the business goal, users, and technical context."],
-  ["Evaluate", "Compare suitable tools against requirements and constraints."],
-  ["Build", "Bring the chosen technologies together into a coherent solution."],
-  ["Evolve", "Review performance and adapt as needs change."],
-];
+const CATEGORIES = {
+  AI: [
+    'Claude Code',
+    'Codex',
+    'Copilot',
+    'Cursor',
+    'Gemini',
+    'Github Copilot',
+    'Ollama',
+    'Replit',
+    'Windsurf',
+  ],
 
-function SectionHeading({ eyebrow, title, text, centered = false }) {
+  'Cloud Computing': [
+    'Amazon Web Services',
+    'Azure',
+    'Google Cloud',
+  ],
+
+  'Data Science': [
+    'Tableau',
+  ],
+
+  Databases: [
+    'MySQL',
+    'NoSQL',
+    'PostgreSQL',
+    'SQL Server',
+  ],
+
+  'DevOps and QA': [
+    'Docker',
+    'Elasticsearch',
+    'Kubernetes',
+    'Red Hat OpenShift',
+    'Selenium',
+  ],
+
+  Java: [
+    'Java',
+    'Spring Boot',
+  ],
+
+  JavaScript: [
+    'Angular',
+    'Express',
+    'Node.js',
+    'React',
+    'React Native',
+    'Typescript',
+    'Vue',
+  ],
+
+  PHP: [
+    'Laravel',
+    'PHP',
+    'WordPress',
+  ],
+
+  Python: [
+    'Python',
+  ],
+};
+
+const FILTERS = ['All', ...Object.keys(CATEGORIES)];
+
+/* ---------------------------------------------------------
+   FLOATING HERO LOGOS
+--------------------------------------------------------- */
+
+const HERO_COLS = {
+  leftOuter: [
+    ['Drupal', 'drupal'],
+    ['Forcepoint', 'hero-forcepoint'],
+    ['Google Cloud', 'google-cloud'],
+    ['iOS', 'ios'],
+    ['Jira', 'hero-jira'],
+    ['JavaScript', 'javascript'],
+  ],
+
+  leftInner: [
+    ['PHP', 'php'],
+    ['AWS', 'amazon-web-services'],
+    ['C#', 'c-sharp'],
+    ['SaaS', 'saas'],
+    ['Unity', 'unity'],
+    ['SaaS', 'saas'],
+  ],
+
+  rightInner: [
+    ['Shopify', 'shopify'],
+    ['Ruby', 'ruby'],
+    ['Django', 'django'],
+    ['jQuery', 'hero-jquery'],
+    ['Kubernetes', 'kubernetes'],
+    ['Java', 'java'],
+  ],
+
+  rightOuter: [
+    ['Mojo', 'hero-mojo'],
+    ['Laravel', 'laravel'],
+    ['Linux', 'hero-linux'],
+    ['Elixir', 'elixir'],
+    ['Swift', 'swift'],
+    ['Power BI', 'hero-power-bi'],
+  ],
+};
+
+
+/* ---------------------------------------------------------
+   LOGO COMPONENT
+   Missing images automatically show grey placeholders.
+--------------------------------------------------------- */
+
+function Logo({ file, alt = '', className = '' }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <span
+        className={`tp-ph ${className}`}
+        role="img"
+        aria-label={alt}
+      />
+    );
+  }
+
   return (
-    <div className={`technology-heading ${centered ? "is-centered" : ""}`}>
-      <span className="technology-eyebrow">{eyebrow}</span>
-      <h2>{title}</h2>
-      {text && <p>{text}</p>}
+    <img
+      className={className}
+      src={logo(file)}
+      alt={alt}
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+/* ---------------------------------------------------------
+   FLOATING LOGO COLUMN
+--------------------------------------------------------- */
+
+function FloatCol({ items, className }) {
+  const loop = [...items, ...items];
+
+  return (
+    <div className={`tp-float ${className}`} aria-hidden="true">
+      <div className="tp-float__track">
+        {loop.map(([name, file], index) => (
+          <div
+            className="tp-float__tile"
+            key={`${file}-${index}`}
+          >
+            <Logo file={file} alt={name} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-export default function Technologies() {
-  const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
+/* ---------------------------------------------------------
+   BOTTOM IMAGE
+--------------------------------------------------------- */
 
-  const allTechnologies = useMemo(
-    () => technologyGroups.flatMap((group) =>
-      group.technologies.map((name) => ({
-        name,
-        category: group.name,
-        icon: group.icon,
-      }))
-    ),
-    []
-  );
+function ProofImage() {
+  const [failed, setFailed] = useState(false);
 
-  const filteredTechnologies = allTechnologies.filter((item) => {
-    const matchesCategory = activeCategory === "All" || item.category === activeCategory;
-    const matchesSearch = item.name.toLowerCase().includes(query.trim().toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
-
-  const clearFilters = () => {
-    setQuery("");
-    setActiveCategory("All");
-  };
+  if (failed) {
+    return (
+      <div className="tp-proof__img tp-proof__img--ph" />
+    );
+  }
 
   return (
-    <main className="technologies-page">
-      <PageHero
-        tag="DEPLOY OPTIQ IQ · TECHNOLOGY EXPERTISE"
-        title="The right technology."
-        accent="Built around your goals."
-        desc="From intelligent applications and cloud platforms to modern web, mobile, and data systems, we explore technology choices around what your business needs to achieve."
-        variant="technologies"
-        primaryText="Discuss your technology needs"
-        secondaryText="Explore our services"
-        primaryLink="/contact"
-        secondaryLink="/services"
-        proof="Thoughtful choices. Connected capabilities. Practical progress."
-      />
+    <img
+      className="tp-proof__img"
+      src={PROOF_IMAGE}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
-      <section className="technology-intro">
-        <div className="technology-container technology-intro-grid">
-          <div className="technology-intro-mark" aria-hidden="true">
-            <div className="technology-mark-orbit orbit-one" />
-            <div className="technology-mark-orbit orbit-two" />
-            <div className="technology-mark-core"><Code2 size={34} /></div>
-            <span className="technology-mark-dot dot-one" />
-            <span className="technology-mark-dot dot-two" />
-            <span className="technology-mark-dot dot-three" />
-          </div>
-          <div className="technology-intro-copy">
-            <span className="technology-eyebrow">A PURPOSE-LED TECHNOLOGY APPROACH</span>
-            <h2>Technology is a <em>means to progress</em> — not the starting point.</h2>
-            <p>
-              Every product and organization has different needs. We begin with the challenge,
-              understand the environment, and consider the tools that make sense for the work.
-              The goal is not to use the most fashionable stack; it is to create something useful,
-              reliable, and ready to evolve.
-            </p>
-            <a className="technology-text-link" href="/contact">
-              Talk through your requirements <ArrowRight size={17} />
-            </a>
-          </div>
-        </div>
-      </section>
+/* ---------------------------------------------------------
+   ALPHABET HELPER
+--------------------------------------------------------- */
 
-      <section className="technology-stack-section">
-        <div className="technology-container">
-          <SectionHeading
-            eyebrow="EXPLORE OUR TECHNOLOGY LANDSCAPE"
-            title={<>Capabilities across the <em>modern stack.</em></>}
-            text="Browse by discipline or search for a technology. The right combination depends on your project requirements and delivery context."
-            centered
+const letterOf = (name) =>
+  name.replace(/^[^A-Za-z0-9]+/, '')[0].toUpperCase();
+
+/* =========================================================
+   MAIN TECHNOLOGIES COMPONENT
+========================================================= */
+
+export default function Technologies() {
+  const [query, setQuery] = useState('');
+  const [filter, setFilter] = useState('All');
+  const [headerShown, setHeaderShown] = useState(true);
+  // TESTIMONIALS DATA AND SCROLL
+  
+  // HOME PAGE STYLE TESTIMONIALS
+
+  const trackRef = useRef(null);
+
+  const cards = [
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "SOFTWARE DEVELOPMENT",
+      quote:
+        "Turn your business ideas into reliable, scalable digital solutions with a team focused on quality and delivery.",
+      name: "Software Development",
+      role: "Custom Digital Solutions",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "ENGINEERING TEAMS",
+      quote:
+        "Build with the right technical expertise, collaborative teams and engineering support aligned with your goals.",
+      name: "IT Staffing",
+      role: "Flexible Engineering Teams",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "QUALITY ASSURANCE",
+      quote:
+        "Create dependable digital experiences through structured testing, quality checks and continuous improvement.",
+      name: "Quality Assurance",
+      role: "Testing & Quality",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "TECHNOLOGY SOLUTIONS",
+      quote:
+        "Choose practical technology solutions that help your business adapt, grow and work more efficiently.",
+      name: "IT Solutions",
+      role: "Technology Consulting",
+    },
+    {
+      logo: "DEPLOY OPTIQ IQ",
+      label: "LONG-TERM PARTNERSHIP",
+      quote:
+        "From planning to ongoing support, keep your technology journey moving with a dependable development partner.",
+      name: "Project Partnership",
+      role: "End-to-End Support",
+    },
+  ];
+
+  const moveCarousel = (direction) => {
+    if (!trackRef.current) return;
+
+    const card = trackRef.current.querySelector(
+      ".home-ref-testimonial-card"
+    );
+
+    if (!card) return;
+
+    const gap = 22;
+    const distance = card.getBoundingClientRect().width + gap;
+
+    trackRef.current.scrollBy({
+      left: direction * distance,
+      behavior: "smooth",
+    });
+  };
+
+  const gridRef = useRef(null);
+  const cardRefs = useRef(new Map());
+  const prevRects = useRef(new Map());
+
+  /* HEADER SCROLL BEHAVIOUR */
+
+  useEffect(() => {
+    let last = window.scrollY;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      if (Math.abs(y - last) < 4) return;
+
+      setHeaderShown(y < last || y < 80);
+      last = y;
+    };
+
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
+  /* FILTERED TECHNOLOGIES */
+
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase();
+
+    return TECHNOLOGIES.filter((tech) => {
+      if (
+        filter !== 'All' &&
+        !CATEGORIES[filter].includes(tech.name)
+      ) {
+        return false;
+      }
+
+      return !q || tech.name.toLowerCase().includes(q);
+    });
+  }, [query, filter]);
+
+  /* ALPHABETICAL SECTIONS */
+
+  const sections = useMemo(() => {
+    if (filter !== 'All') return null;
+
+    const map = new Map();
+
+    visible.forEach((tech) => {
+      const letter = letterOf(tech.name);
+
+      if (!map.has(letter)) {
+        map.set(letter, []);
+      }
+
+      map.get(letter).push(tech);
+    });
+
+    return [...map.entries()];
+  }, [visible, filter]);
+
+  /* CAPTURE CARD POSITIONS */
+
+  const capture = () => {
+    prevRects.current = new Map();
+
+    cardRefs.current.forEach((element, key) => {
+      if (element) {
+        prevRects.current.set(
+          key,
+          element.getBoundingClientRect()
+        );
+      }
+    });
+  };
+
+  /* FILTER CHANGE */
+
+  const changeFilter = (newFilter) => {
+    if (newFilter === filter) return;
+
+    capture();
+    setFilter(newFilter);
+  };
+
+  /* SEARCH CHANGE */
+
+  const changeQuery = (value) => {
+    capture();
+    setQuery(value);
+  };
+
+  /* CARD SHUFFLE ANIMATION */
+
+  useLayoutEffect(() => {
+    const reduce = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (!reduce) {
+      cardRefs.current.forEach((element, key) => {
+        if (!element || !element.animate) return;
+
+        const previous = prevRects.current.get(key);
+        const current = element.getBoundingClientRect();
+
+        if (previous) {
+          const dx = previous.left - current.left;
+          const dy = previous.top - current.top;
+
+          if (dx || dy) {
+            element.animate(
+              [
+                {
+                  transform: `translate(${dx}px, ${dy}px)`,
+                },
+                {
+                  transform: 'none',
+                },
+              ],
+              {
+                duration: 480,
+                easing: 'cubic-bezier(.22,1,.36,1)',
+              }
+            );
+          }
+        } else if (prevRects.current.size) {
+          element.animate(
+            [
+              {
+                opacity: 0,
+                transform: 'scale(.94)',
+              },
+              {
+                opacity: 1,
+                transform: 'none',
+              },
+            ],
+            {
+              duration: 380,
+              easing: 'ease-out',
+            }
+          );
+        }
+      });
+    }
+
+    prevRects.current = new Map();
+
+    const grid = gridRef.current;
+
+    if (grid) {
+      const top =
+        grid.getBoundingClientRect().top +
+        window.scrollY -
+        150;
+
+      if (window.scrollY > top) {
+        window.scrollTo({
+          top,
+          behavior: 'auto',
+        });
+      }
+    }
+  }, [filter, query]);
+
+  /* TECHNOLOGY CARD */
+
+  const renderCard = (tech) => (
+    <article
+      className="tp-card"
+      key={tech.name}
+      tabIndex={0}
+      ref={(element) => {
+        if (element) {
+          cardRefs.current.set(tech.name, element);
+        } else {
+          cardRefs.current.delete(tech.name);
+        }
+      }}
+    >
+      <div className="tp-card__logo">
+        <Logo
+          file={tech.file}
+          alt={tech.name}
+          className={
+            tech.size ? `tp-img--${tech.size}` : ''
+          }
+        />
+      </div>
+
+      <div className="tp-card__name">
+        {tech.name}
+      </div>
+    </article>
+  );
+
+  /* =======================================================
+     PAGE JSX
+  ======================================================= */
+
+  return (
+    <div className="tp-page">
+
+      {/* HERO SECTION */}
+
+      <section className="tp-hero">
+        <div className="tp-hero__inner">
+
+          {/* LEFT FLOATING LOGOS */}
+
+          <FloatCol
+            items={HERO_COLS.leftOuter}
+            className="tp-float--l1 tp-float--up"
           />
 
-          <div className="technology-explorer">
-            <div className="technology-explorer-top">
-              <div>
-                <span className="technology-explorer-kicker"><span className="technology-live-dot" /> TECHNOLOGY DIRECTORY</span>
-                <h3>Find the right building blocks.</h3>
-              </div>
-              <div className="technology-search">
-                <Search size={18} />
-                <input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search technologies..."
-                  aria-label="Search technologies"
-                />
-                {query && (
-                  <button type="button" onClick={() => setQuery("")} aria-label="Clear search">
-                    <X size={16} />
-                  </button>
-                )}
-              </div>
-            </div>
+          <FloatCol
+            items={HERO_COLS.leftInner}
+            className="tp-float--l2 tp-float--down"
+          />
 
-            <div className="technology-filter-row" aria-label="Filter technologies by category">
-              {["All", ...technologyGroups.map((group) => group.name)].map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  className={activeCategory === category ? "active" : ""}
-                  onClick={() => setActiveCategory(category)}
-                  aria-pressed={activeCategory === category}
+          {/* RIGHT FLOATING LOGOS */}
+
+          <FloatCol
+            items={HERO_COLS.rightInner}
+            className="tp-float--r2 tp-float--up"
+          />
+
+          <FloatCol
+            items={HERO_COLS.rightOuter}
+            className="tp-float--r1 tp-float--down"
+          />
+
+          {/* HERO CONTENT */}
+
+          <div className="tp-hero__content">
+
+            <nav
+              className="tp-crumb"
+              aria-label="Breadcrumb"
+            >
+              <a href="/" aria-label="Home">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
                 >
-                  {category}
-                </button>
-              ))}
-            </div>
-
-            <div className="technology-results-meta">
-              <span>{filteredTechnologies.length} technologies shown</span>
-              {(query || activeCategory !== "All") && (
-                <button type="button" onClick={clearFilters}>Clear filters <X size={14} /></button>
-              )}
-            </div>
-
-            {filteredTechnologies.length > 0 ? (
-              <div className="technology-grid">
-                {filteredTechnologies.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <article
-                      className="technology-card"
-                      key={`${item.category}-${item.name}`}
-                      style={{ "--tech-delay": `${(index % 12) * 45}ms` }}
-                    >
-                      <span className="technology-card-icon"><Icon size={19} /></span>
-                      <div className="technology-card-copy">
-                        <strong>{item.name}</strong>
-                        <small>{item.category}</small>
-                      </div>
-                      <ArrowUpRight className="technology-card-arrow" size={17} />
-                    </article>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="technology-empty">
-                <Search size={25} />
-                <h3>No matching technology found</h3>
-                <p>Try another search term or browse all categories.</p>
-                <button type="button" onClick={clearFilters}>Show all technologies</button>
-              </div>
-            )}
-          </div>
-
-          <p className="technology-stack-note">
-            <ShieldCheck size={16} />
-            Technology examples are indicative. Specific tools and implementation choices are confirmed against each project’s needs.
-          </p>
-        </div>
-      </section>
-
-      <section className="technology-principles-section">
-        <div className="technology-container">
-          <div className="technology-principles-layout">
-            <div className="technology-principles-intro">
-              <span className="technology-eyebrow">HOW WE THINK ABOUT TECHNOLOGY</span>
-              <h2>Good technology decisions begin with <em>good questions.</em></h2>
-              <p>Tools matter, but context matters more. A considered approach helps keep the solution useful for the people who depend on it.</p>
-              <a className="technology-dark-link" href="/methodologies">
-                Explore our methodology <ArrowRight size={17} />
+                  <path d="M3 11.5 12 4l9 7.5" />
+                  <path d="M5.5 10v9.5h13V10" />
+                  <path d="M10 19.5v-5h4v5" />
+                </svg>
               </a>
-            </div>
-            <div className="technology-principle-list">
-              {principles.map(({ number, title, text, icon: Icon }) => (
-                <article className="technology-principle" key={number}>
-                  <span className="technology-principle-icon"><Icon size={22} /></span>
-                  <div className="technology-principle-copy">
-                    <span>{number}</span>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </div>
-                  <CheckCircle2 className="technology-principle-check" size={19} />
-                </article>
-              ))}
-            </div>
+
+              <span className="tp-crumb__sep">›</span>
+
+              <span className="tp-crumb__cur">
+                Technologies
+              </span>
+            </nav>
+
+            <p className="tp-eyebrow">
+              OUR TECH EXPERTISE
+            </p>
+
+            <h1 className="tp-title">
+              What’s your stack?
+              <span>We cover them all.</span>
+              <span>(AI included.)</span>
+            </h1>
+
+            {/* SEARCH BAR */}
+
+            <label className="tp-search">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+              >
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m20 20-4.8-4.8" />
+              </svg>
+
+              <input
+                type="text"
+                value={query}
+                onChange={(event) =>
+                  changeQuery(event.target.value)
+                }
+                placeholder="Search technology name"
+                aria-label="Search technology name"
+              />
+            </label>
+
           </div>
         </div>
       </section>
 
-      <section className="technology-process-section">
-        <div className="technology-container">
-          <SectionHeading
-            eyebrow="FROM REQUIREMENT TO IMPLEMENTATION"
-            title={<>A clear path from <em>question to solution.</em></>}
-            text="A collaborative sequence keeps technology decisions connected to the outcome at every stage."
-            centered
+      {/* STICKY FILTER BAR */}
+
+      <div
+        className={`tp-filter ${
+          headerShown ? '' : 'tp-filter--top'
+        }`}
+      >
+        <div className="tp-filter__inner">
+
+          <span className="tp-filter__label">
+            Filter by:
+          </span>
+
+          {FILTERS.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={`tp-pill ${
+                filter === item ? 'is-active' : ''
+              }`}
+              onClick={() => changeFilter(item)}
+            >
+              {item}
+            </button>
+          ))}
+
+        </div>
+      </div>
+
+      {/* TECHNOLOGY GRID */}
+
+      <section
+        className="tp-list"
+        ref={gridRef}
+      >
+        <div className="tp-container">
+
+          {sections ? (
+            sections.map(([letter, items]) => (
+              <div
+                className="tp-section"
+                key={letter}
+              >
+                <h2 className="tp-letter">
+                  <span>{letter}</span>
+                  <i />
+                </h2>
+
+                <div className="tp-grid">
+                  {items.map(renderCard)}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="tp-grid tp-grid--flat">
+              {visible.map(renderCard)}
+            </div>
+          )}
+
+          {visible.length === 0 && (
+            <p className="tp-empty">
+              No technologies found.
+            </p>
+          )}
+
+        </div>
+      </section>
+
+     
+     
+      {/* HOME PAGE STYLE TESTIMONIALS */}
+
+      <section className="home-ref-testimonials">
+
+        {/* LEFT BACKGROUND IMAGE */}
+        <div className="home-ref-testimonials-photo">
+          <img
+            src="/images/team-06.png"
+            alt="Deploy Optiq IQ team collaboration"
+            loading="lazy"
           />
-          <div className="technology-process-grid">
-            {deliverySteps.map(([title, text], index) => (
-              <article className="technology-process-card" key={title} style={{ "--tech-delay": `${index * 100}ms` }}>
-                <span className="technology-process-number">0{index + 1}</span>
-                <div className="technology-process-line"><i /></div>
-                <h3>{title}</h3>
-                <p>{text}</p>
+        </div>
+
+        {/* RIGHT SIDE CONTENT */}
+        <div className="home-ref-testimonials-content">
+
+          <div className="home-ref-testimonials-heading">
+
+            <div className="home-ref-testimonials-title">
+              <h2>
+                Built on great partnerships.
+                <br />
+                Focused on <span>moving forward.</span>
+              </h2>
+
+              <p>
+                We bring together technology, expertise and collaboration
+                to help businesses build better digital solutions.
+              </p>
+            </div>
+
+            <a href="/services">
+              Our greatest hits <ArrowRight size={22} />
+            </a>
+
+          </div>
+
+          {/* FIVE HORIZONTAL CARDS */}
+          <div
+            className="home-ref-testimonials-track"
+            ref={trackRef}
+          >
+            {cards.map((card, index) => (
+              <article
+                className="home-ref-testimonial-card"
+                key={index}
+              >
+
+                <div className="home-ref-testimonial-top">
+                  <div className="home-ref-testimonial-logo">
+                    <span>DO</span>
+                    <strong>{card.logo}</strong>
+                  </div>
+
+                  <a
+                    href="/services"
+                    className="home-ref-testimonial-arrow"
+                    aria-label={`Explore ${card.name}`}
+                  >
+                    <ArrowRight size={23} />
+                  </a>
+                </div>
+
+                <div className="home-ref-testimonial-quote">
+                  <span className="home-ref-quote-mark">"</span>
+                  {card.quote}
+                  <span className="home-ref-quote-mark">"</span>
+                </div>
+
+                <div className="home-ref-testimonial-person">
+                  <strong>{card.name}</strong>
+                  <span>{card.role}</span>
+                </div>
+
               </article>
             ))}
           </div>
+
+          {/* CAROUSEL NAVIGATION */}
+          <div className="home-ref-testimonials-navigation">
+
+            <button
+              type="button"
+              onClick={() => moveCarousel(-1)}
+              aria-label="Previous testimonial"
+            >
+              <ArrowLeft size={21} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => moveCarousel(1)}
+              aria-label="Next testimonial"
+            >
+              <ArrowRight size={21} />
+            </button>
+
+          </div>
+
         </div>
       </section>
 
-      <section className="technology-final-cta">
-        <div className="technology-container technology-final-inner">
-          <div className="technology-final-orb" aria-hidden="true"><Sparkles size={34} /></div>
-          <span className="technology-eyebrow">LET'S BUILD WITH PURPOSE</span>
-          <h2>Have a challenge in mind? <em>Let's find the right way forward.</em></h2>
-          <p>Tell us what you are planning, improving, or trying to solve. We can start with the requirement and explore the technology options together.</p>
-          <a href="/contact" className="technology-final-button">
-            Start a conversation <ArrowRight size={18} />
-          </a>
-        </div>
-      </section>
-    </main>
+
+    </div>
   );
 }

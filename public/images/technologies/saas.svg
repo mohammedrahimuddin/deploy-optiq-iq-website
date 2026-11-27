@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 100">
+  <path d="M37 76
+    C17 76 12 61 22 49
+    C26 44 33 42 39 43
+    C40 23 60 16 76 29
+    C88 10 117 15 123 36
+    C145 32 158 48 153 65
+    C150 74 141 78 131 78
+    Z"
+    fill="none" stroke="#3475D9" stroke-width="4" stroke-linejoin="round"/>
+  <text x="88" y="63" text-anchor="middle"
+    font-family="Arial" font-size="35" font-weight="bold" fill="#3475D9">SaaS</text>
+</svg>

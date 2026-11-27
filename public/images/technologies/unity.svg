@@ -1,0 +1,11 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 90">
+  <g transform="translate(8 12)" fill="none" stroke="#202A35" stroke-width="6" stroke-linejoin="miter">
+    <path d="M40 8 L65 3 L74 30 L60 48 L40 42 L20 27 L40 8Z"/>
+    <path d="M40 8 L40 42 L60 48"/>
+    <path d="M20 27 L5 43 L40 42"/>
+    <path d="M40 8 L30 0"/>
+    <path d="M60 48 L69 64"/>
+  </g>
+  <text x="88" y="57" font-family="Arial" font-size="35" font-weight="bold" fill="#202A35">unity</text>
+</svg>

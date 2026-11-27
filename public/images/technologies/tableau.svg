@@ -1,0 +1,11 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 90">
+  <g stroke="#31577B" stroke-width="2">
+    <path d="M35 5 V30 M23 17 H47" stroke="#E87635"/>
+    <path d="M35 28 V53 M23 40 H47" stroke="#31577B"/>
+    <path d="M12 29 V49 M2 39 H22" stroke="#E87635"/>
+    <path d="M58 29 V49 M48 39 H68" stroke="#31577B"/>
+    <path d="M35 52 V75 M23 63 H47" stroke="#E87635"/>
+  </g>
+  <text x="78" y="53" font-family="Arial" font-size="32" letter-spacing="5" fill="#31577B">tableau</text>
+</svg>

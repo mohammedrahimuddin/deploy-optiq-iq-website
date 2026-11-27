@@ -1,0 +1,21 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 90">
+  <text x="8" y="65"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="68"
+        font-weight="700"
+        letter-spacing="-4"
+        fill="#193D38">n</text>
+
+  <circle cx="88" cy="45" r="21" fill="#83B7A8"/>
+  <circle cx="88" cy="45" r="10" fill="white"/>
+  <path d="M72 57 Q88 73 104 57"
+        fill="none" stroke="white" stroke-width="7"/>
+
+  <text x="111" y="65"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="68"
+        font-weight="700"
+        letter-spacing="-4"
+        fill="#193D38">w</text>
+</svg>

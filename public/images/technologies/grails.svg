@@ -1,0 +1,36 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <ellipse cx="64" cy="64" rx="48" ry="59" fill="#F4B66F"/>
+
+  <text x="64" y="37"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="16"
+        font-weight="500"
+        letter-spacing="0.5"
+        fill="#FFFFFF">GRAILS</text>
+
+  <path d="M34 49 H94
+           C94 67 85 80 74 87
+           L69 98 H59 L54 87
+           C43 80 34 67 34 49Z"
+        fill="#FFFFFF"/>
+
+  <path d="M34 57
+           C22 53 20 69 28 79
+           C32 84 38 84 43 81
+           L39 72
+           C32 75 28 67 34 57Z"
+        fill="#FFFFFF"/>
+
+  <path d="M94 57
+           C106 53 108 69 100 79
+           C96 84 90 84 85 81
+           L89 72
+           C96 75 100 67 94 57Z"
+        fill="#FFFFFF"/>
+
+  <path d="M55 88 L73 88 L70 108
+           Q64 115 58 108Z"
+        fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,11 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 110">
+  <g fill="none" stroke="#A73542" stroke-width="1.8">
+    <path d="M110 8 L135 22 L130 43 L110 58 L90 43 L85 22Z"/>
+    <path d="M85 22 L110 34 L135 22 M110 34 L110 58"/>
+    <path d="M90 43 L110 48 L130 43"/>
+    <path d="M95 17 L110 8 L125 17"/>
+  </g>
+  <text x="110" y="72" text-anchor="middle" font-family="Arial" font-size="11" fill="#555">Microsoft</text>
+  <text x="110" y="94" text-anchor="middle" font-family="Georgia, serif" font-size="23" fill="#333">SQL Server</text>
+</svg>

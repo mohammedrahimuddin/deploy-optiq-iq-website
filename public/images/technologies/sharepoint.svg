@@ -1,0 +1,10 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 90">
+  <g>
+    <path d="M24 28 L48 17 L48 69 L24 57Z" fill="#0876C9"/>
+    <path d="M48 17 L65 27 L65 62 L48 69Z" fill="#1495D4"/>
+    <circle cx="25" cy="45" r="13" fill="#0876C9"/>
+    <text x="25" y="51" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold" fill="white">S</text>
+  </g>
+  <text x="77" y="55" font-family="Arial, sans-serif" font-size="31" fill="#2679B9">SharePoint</text>
+</svg>

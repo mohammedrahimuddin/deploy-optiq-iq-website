@@ -1,36 +1,844 @@
-.solutions-page{--solp-ink:#171b25;--solp-muted:#68758a;--solp-coral:#ff684e;--solp-teal:#00b9b1;--solp-line:#e4e8ee;--solp-soft:#f7f8fa;color:var(--solp-ink);background:#fff;font-family:Inter,Arial,sans-serif;overflow:hidden}
-.solp-container{width:min(1180px,calc(100% - 48px));margin-inline:auto}
-.solp-section-soft{background:var(--solp-soft);padding:100px 0}
-.solp-eyebrow{display:inline-block;color:var(--solp-coral);font-size:11px;font-weight:800;letter-spacing:1.8px;line-height:1.5}
-.solp-heading{max-width:720px;margin:0 0 42px}.solp-heading.is-centered{text-align:center;margin-inline:auto}
-.solp-heading h2,.solp-intro h2,.solp-outcomes h2,.solp-faq h2,.solp-cta h2{margin:13px 0 14px;font-family:Manrope,Inter,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1.15;letter-spacing:-1.5px;font-weight:800;color:var(--solp-ink)}
-.solp-heading p,.solp-intro-copy>p,.solp-outcomes-copy>p,.solp-faq-layout>div:first-child>p,.solp-cta p{margin:0;color:var(--solp-muted);font-size:15px;line-height:1.85}
-.solp-intro{background:#f7f8fa;padding:100px 0 106px;text-align:center}
-.solp-intro-inner{display:flex;flex-direction:column;align-items:center}
-.solp-intro .solp-eyebrow{color:#8290a4;margin-bottom:24px}
-.solp-intro h2{max-width:940px;margin:0 auto 22px;font-family:Manrope,Inter,sans-serif;font-size:clamp(39px,5.2vw,66px);line-height:1.12;letter-spacing:-2.7px;font-weight:800;color:var(--solp-ink)}
-.solp-intro h2 span{color:var(--solp-coral)}
-.solp-intro-inner>p{max-width:760px;margin:0 auto;color:var(--solp-muted);font-size:16px;line-height:1.9}
-.solp-intro-button{margin-top:29px;min-height:54px;padding-inline:25px;border-radius:8px;font-size:14px}
-.solp-intro-button:hover{box-shadow:0 12px 28px #17191d25}
-.solp-text-link{display:inline-flex;align-items:center;gap:10px;margin-top:23px;color:var(--solp-ink);font-size:14px;font-weight:800;text-decoration:none;transition:color .2s,gap .2s}.solp-text-link:hover{color:var(--solp-coral);gap:15px}
-.solp-area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.solp-area-card{position:relative;min-height:340px;padding:27px 25px 23px;border:1px solid var(--solp-line);border-radius:17px;background:#fff;box-shadow:0 10px 35px #17203308;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;animation:solpRise .65s both}
-.solp-area-card:nth-child(2){animation-delay:.07s}.solp-area-card:nth-child(3){animation-delay:.14s}.solp-area-card:nth-child(4){animation-delay:.21s}.solp-area-card:nth-child(5){animation-delay:.28s}.solp-area-card:nth-child(6){animation-delay:.35s}
-.solp-area-card:hover{transform:translateY(-7px);border-color:#ffd0c5;box-shadow:0 22px 48px #17203312}
-.solp-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.solp-card-icon{width:51px;height:51px;display:grid;place-items:center;border-radius:14px;background:#fff0ec;color:var(--solp-coral)}.solp-card-number{font-size:12px;font-weight:800;letter-spacing:1px;color:#aab2bf}
-.solp-area-card h3,.solp-outcome-card h3{margin:0 0 11px;font-family:Manrope,Inter,sans-serif;font-size:19px;line-height:1.3;font-weight:800;color:var(--solp-ink)}
-.solp-area-card>p,.solp-outcome-card p{margin:0;color:var(--solp-muted);font-size:13px;line-height:1.75}
-.solp-area-card ul{display:grid;gap:9px;list-style:none;padding:0;margin:20px 0 23px}.solp-area-card li{display:flex;align-items:flex-start;gap:8px;color:#485365;font-size:12px;line-height:1.5}.solp-area-card li svg{flex-shrink:0;color:var(--solp-teal);margin-top:1px}
-.solp-area-card>a{display:inline-flex;align-items:center;gap:8px;padding-top:14px;border-top:1px solid var(--solp-line);width:100%;color:var(--solp-ink);font-size:12px;font-weight:800;text-decoration:none}.solp-area-card>a:hover{color:var(--solp-coral)}
-.solp-outcomes{display:grid;grid-template-columns:.82fr 1.18fr;gap:65px;align-items:center;padding-top:105px;padding-bottom:105px}.solp-outcomes-copy{max-width:430px}.solp-outcomes-copy h2{font-size:clamp(32px,3.7vw,42px)}.solp-outcomes-copy>p{margin-bottom:25px}
-.solp-button{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:51px;padding:0 20px;border-radius:9px;text-decoration:none;font-size:13px;font-weight:800;transition:transform .2s,background .2s,box-shadow .2s}.solp-button:hover{transform:translateY(-3px)}.solp-button-dark{background:#17191d;color:#fff}.solp-button-dark:hover{background:#30343b;box-shadow:0 10px 25px #17191d20}
-.solp-outcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.solp-outcome-card{padding:23px;border:1px solid var(--solp-line);border-radius:15px;background:#fff;transition:transform .25s,box-shadow .25s}.solp-outcome-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px #1720330c}.solp-outcome-card>span{width:43px;height:43px;display:grid;place-items:center;margin-bottom:18px;border-radius:12px;background:#fff0ec;color:var(--solp-coral)}.solp-outcome-card h3{font-size:16px}.solp-outcome-card p{font-size:12px}
-.solp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.solp-step{position:relative;padding:23px 21px 25px;border:1px solid #e5e9ee;border-radius:15px;background:#fff;min-height:220px}.solp-step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.solp-step-icon{width:47px;height:47px;display:grid;place-items:center;border-radius:13px;background:#fff0ec;color:var(--solp-coral)}.solp-step-number{font-size:12px;font-weight:800;letter-spacing:1px;color:#aab2bf}.solp-step h3{margin:0 0 9px;font-size:18px;font-weight:800;font-family:Manrope,Inter,sans-serif}.solp-step p{margin:0;color:var(--solp-muted);font-size:12px;line-height:1.75}.solp-step-arrow{position:absolute;right:-19px;top:43px;z-index:2;width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--solp-line);border-radius:50%;background:#fff;color:var(--solp-coral)}
-.solp-fit{padding-top:95px;padding-bottom:95px}.solp-fit-panel{display:grid;grid-template-columns:64px 1fr auto;gap:25px;align-items:center;padding:42px;border-radius:20px;background:linear-gradient(115deg,#10263e,#173b55);color:#fff;box-shadow:0 25px 55px #10263e1c}.solp-fit-icon{width:60px;height:60px;display:grid;place-items:center;border:1px solid #ffffff30;border-radius:17px;background:#ffffff12;color:#ff8a73}.solp-fit-panel .solp-eyebrow{color:#ff9b84}.solp-fit-panel h2{max-width:620px;margin:10px 0;color:#fff;font-family:Manrope,Inter,sans-serif;font-size:clamp(25px,3vw,34px);line-height:1.2;letter-spacing:-1px}.solp-fit-panel p{max-width:650px;margin:0;color:#c7d4df;font-size:13px;line-height:1.8}.solp-button-light{background:#fff;color:#17191d;white-space:nowrap;border:1px solid #e8edf2}.solp-button-light:hover{background:#fff0ec;border-color:#ffd2c8}
-.solp-faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:75px;align-items:start}.solp-faq-layout>div:first-child>p{max-width:350px}.solp-faq-list{border-top:1px solid #dfe5eb}.solp-faq-item{border-bottom:1px solid #dfe5eb}.solp-faq-item>button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border:0;background:transparent;text-align:left;color:var(--solp-ink);font-family:inherit;font-size:15px;font-weight:800;cursor:pointer}.solp-faq-plus{flex-shrink:0;width:29px;height:29px;display:grid;place-items:center;border-radius:50%;background:#fff0ec;color:var(--solp-coral);font-size:21px;font-weight:500}.solp-faq-item>p{max-width:680px;margin:-4px 42px 22px 0;color:var(--solp-muted);font-size:13px;line-height:1.8;animation:solpFade .25s ease}
-.solp-cta{padding-top:95px;padding-bottom:105px}.solp-cta-inner{display:flex;justify-content:space-between;align-items:center;gap:35px;padding:43px 46px;border:1px solid #f0e4df;border-radius:19px;background:linear-gradient(120deg,#fff8f5,#fff 70%)}.solp-cta-inner>div{max-width:690px}.solp-cta h2{margin:9px 0;font-size:clamp(28px,3.5vw,39px)}.solp-cta p{font-size:14px}.solp-button-coral{flex-shrink:0;background:#17191d;color:#fff;box-shadow:0 8px 22px #17191d20}.solp-button-coral:hover{background:#30343b}
-@keyframes solpRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes solpFade{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:1000px){.solp-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.solp-outcomes{grid-template-columns:1fr;gap:35px}.solp-outcomes-copy{max-width:700px}.solp-fit-panel{grid-template-columns:55px 1fr}.solp-fit-panel .solp-button{grid-column:2;justify-self:start}.solp-faq-layout{grid-template-columns:1fr;gap:35px}.solp-faq-layout>div:first-child>p{max-width:650px}}
-@media(max-width:700px){.solp-container{width:min(100% - 36px,560px)}.solp-section-soft{padding:72px 0}.solp-intro{padding:72px 0 76px}.solp-intro .solp-eyebrow{margin-bottom:18px}.solp-intro h2{font-size:clamp(34px,8vw,43px);letter-spacing:-1.4px;line-height:1.14;margin-bottom:17px}.solp-intro-inner>p{font-size:14px;line-height:1.8}.solp-intro-button{width:100%;max-width:340px;margin-top:23px}.solp-heading{margin-bottom:30px}.solp-heading h2,.solp-intro h2,.solp-outcomes h2,.solp-faq h2{font-size:31px;letter-spacing:-1px}.solp-heading p,.solp-intro-copy>p,.solp-outcomes-copy>p,.solp-faq-layout>div:first-child>p{font-size:14px}.solp-area-grid{grid-template-columns:1fr;gap:14px}.solp-area-card{min-height:0;padding:23px}.solp-outcomes{padding-top:75px;padding-bottom:75px}.solp-outcome-grid{gap:11px}.solp-outcome-card{padding:17px}.solp-outcome-card h3{font-size:14px}.solp-outcome-card p{font-size:11px}.solp-steps{grid-template-columns:1fr;gap:12px}.solp-step{min-height:0;padding:20px}.solp-step-top{margin-bottom:14px}.solp-step-arrow{display:none}.solp-fit{padding-top:70px;padding-bottom:70px}.solp-fit-panel{grid-template-columns:1fr;gap:17px;padding:27px 23px}.solp-fit-panel .solp-button{grid-column:1;width:100%}.solp-faq-layout{gap:25px}.solp-faq-item>button{font-size:13px;padding:18px 0}.solp-faq-item>p{font-size:12px;margin-right:0}.solp-cta{padding-top:70px;padding-bottom:75px}.solp-cta-inner{display:block;padding:28px 23px}.solp-cta h2{font-size:29px}.solp-cta p{font-size:13px}.solp-cta-inner .solp-button{width:100%;margin-top:22px}}
-@media(prefers-reduced-motion:reduce){.solutions-page *{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* =========================================================
+   DEPLOY OPTIQ IQ — SOLUTIONS PAGE
+   Clean, responsive and consistent styling
+========================================================= */
+
+.solutions-page {
+  --solp-ink: #171b25;
+  --solp-muted: #68758a;
+  --solp-coral: #ff684e;
+  --solp-line: #d9dce1;
+  --solp-soft: #f5f6f8;
+
+  width: 100%;
+  color: var(--solp-ink);
+  background: #fff;
+  font-family: Inter, Arial, sans-serif;
+  overflow: hidden;
+}
+
+.solp-container {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* =========================================================
+   COMMON EYEBROW
+========================================================= */
+
+.solp-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--solp-coral);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SERVICE SECTIONS
+========================================================= */
+
+.solp-service-section {
+  width: 100%;
+  margin: 0;
+  padding: 76px 0 80px;
+  background: var(--solp-soft);
+}
+
+.solp-service-section + .solp-service-section {
+  margin-top: 0;
+}
+
+/* Service section heading */
+
+.solp-service-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 34px;
+}
+
+.solp-service-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  margin-top: 4px;
+  border-radius: 50%;
+  color: var(--solp-coral);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.solp-service-heading h2 {
+  margin: 0;
+  color: #171b25;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(28px, 2.8vw, 38px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+/* Service grid */
+
+.solp-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Service cards */
+
+.solp-service-card {
+  display: block;
+  min-width: 0;
+  min-height: 220px;
+  padding: 32px 30px;
+  border: 1px solid var(--solp-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.solp-service-card:hover {
+  transform: translateY(-5px);
+  border-color: #cbd0d8;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+/* Remove service card logos and links */
+
+.solp-service-card .solp-service-icon,
+.solp-service-card > a {
+  display: none !important;
+}
+
+/* Card headings */
+
+.solp-service-card h3,
+.solp-tech-card h3 {
+  margin: 0 0 16px;
+  color: #252b32;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(20px, 1.7vw, 25px);
+  font-weight: 800;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: break-word;
+}
+
+/* Card descriptions */
+
+.solp-service-card p,
+.solp-tech-card p {
+  margin: 0;
+  color: #414852;
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+/* =========================================================
+   SERVICE CONTACT CTA
+========================================================= */
+
+.solp-services-cta {
+  padding: 82px 0;
+  background: #fff;
+}
+
+.solp-services-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 42px;
+  border: 1px solid #f0e4df;
+  border-radius: 17px;
+  background: linear-gradient(120deg, #fff8f5, #fff 75%);
+}
+
+.solp-services-cta-inner > div {
+  max-width: 700px;
+}
+
+.solp-services-cta h2 {
+  margin: 5px 0 12px;
+  color: var(--solp-ink);
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+.solp-services-cta p {
+  margin: 0;
+  color: var(--solp-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.solp-services-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 8px;
+  background: #171b25;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.solp-services-button:hover {
+  transform: translateY(-3px);
+  background: var(--solp-coral);
+}
+
+/* =========================================================
+   CLOUD & ADVANCED TECHNOLOGIES
+========================================================= */
+
+.solp-tech-section {
+  width: 100%;
+  margin: 0;
+  padding: 76px 0 84px;
+  background: var(--solp-soft);
+}
+
+/* Technology heading */
+
+.solp-tech-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 42px;
+}
+
+.solp-tech-heading svg {
+  width: 27px;
+  height: 27px;
+  color: #2878d4;
+}
+
+.solp-tech-heading h2 {
+  margin: 0;
+  color: #111;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.1px;
+}
+
+/* Technology grid */
+
+.solp-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Technology cards */
+
+.solp-tech-card {
+  display: block;
+  min-width: 0;
+  min-height: 220px;
+  padding: 32px 30px;
+  border: 1px solid var(--solp-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.solp-tech-card:hover {
+  transform: translateY(-5px);
+  border-color: #cbd0d8;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   BUSINESS & DIGITAL SOLUTIONS
+========================================================= */
+
+.solp-business-section {
+  width: 100%;
+  margin: 0;
+  padding: 76px 0 84px;
+  background: var(--solp-soft);
+}
+
+.solp-business-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 42px;
+}
+
+.solp-business-heading svg {
+  width: 27px;
+  height: 27px;
+  color: #f06b45;
+}
+
+.solp-business-heading h2 {
+  margin: 0;
+  color: #111;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.1px;
+}
+
+/* Business cards use the same technology card design */
+
+.solp-business-section .solp-tech-card {
+  min-height: 220px;
+  padding: 32px 30px;
+  background: #fff;
+}
+
+/* =========================================================
+   TECHNOLOGY INFINITE MARQUEE
+========================================================= */
+
+.solp-marquee-section {
+  width: 100%;
+  padding: 95px 0 105px;
+  overflow: hidden;
+  background: var(--solp-soft);
+}
+
+/* Marquee heading */
+
+.solp-marquee-heading {
+  max-width: 1250px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.solp-marquee-heading h2 {
+  margin: 0 0 15px;
+  color: #252b32;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.solp-marquee-heading h2 span {
+  color: var(--solp-coral);
+}
+
+.solp-marquee-heading p {
+  max-width: 1050px;
+  margin: 0 auto;
+  color: #77808c;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Moving tracks */
+
+.solp-marquee-track {
+  width: 100%;
+  margin: 17px 0;
+  overflow: hidden;
+}
+
+.solp-marquee-content {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 34px;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.solp-marquee-content span {
+  color: #c3c8cd;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(26px, 2.6vw, 40px);
+  font-weight: 900;
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+.solp-marquee-content span:hover {
+  color: var(--solp-coral);
+}
+
+/* First row: left to right */
+
+.solp-marquee-right {
+  animation: solpMoveRight 35s linear infinite;
+}
+
+/* Second row: right to left */
+
+.solp-marquee-left {
+  animation: solpMoveLeft 35s linear infinite;
+}
+
+/* Pause on hover */
+
+.solp-marquee-track:hover .solp-marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes solpMoveLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes solpMoveRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Marquee bottom link */
+
+.solp-marquee-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: fit-content;
+  margin: 48px auto 0;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #171b25;
+  color: #171b25;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.solp-marquee-link span {
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+
+.solp-marquee-link:hover span {
+  transform: translateX(6px);
+}
+
+/* =========================================================
+   BLACK DISCOVERY CTA SECTION
+========================================================= */
+
+.solp-discovery {
+  width: 100%;
+  margin: 0;
+  padding: 90px 0;
+  background: #000;
+  color: #fff;
+}
+
+.solp-discovery-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* CTA headline */
+
+.solp-discovery-content h2 {
+  max-width: 700px;
+  margin: 0 0 32px;
+  color: #fff;
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.9px;
+}
+
+.solp-discovery-content h2 span {
+  display: block;
+  margin-top: 2px;
+  color: #f05a35;
+}
+
+/* CTA button */
+
+.solp-discovery-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 0 27px;
+  border-radius: 8px;
+  background: #f05a35;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.solp-discovery-button:hover {
+  background: #ff704b;
+  transform: translateY(-3px);
+}
+
+/* CTA image */
+
+.solp-discovery-image {
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+  border-radius: 48% 10% 10% 48%;
+}
+
+.solp-discovery-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================================
+   TABLET RESPONSIVE — 1000px
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .solp-service-grid,
+  .solp-tech-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .solp-service-card,
+  .solp-tech-card,
+  .solp-business-section .solp-tech-card {
+    min-height: 205px;
+    padding: 27px;
+  }
+
+  .solp-service-card h3,
+  .solp-tech-card h3 {
+    font-size: 22px;
+  }
+
+  .solp-service-card p,
+  .solp-tech-card p {
+    font-size: 15px;
+  }
+
+  .solp-discovery-inner {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 35px;
+  }
+
+  .solp-discovery-content h2 {
+    font-size: 32px;
+  }
+
+  .solp-discovery-image {
+    height: 320px;
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .solp-container {
+    width: min(100% - 34px, 520px);
+  }
+
+  /* Service sections */
+
+  .solp-service-section {
+    padding: 55px 0 60px;
+  }
+
+  .solp-service-section + .solp-service-section {
+    margin-top: 0;
+  }
+
+  .solp-service-heading {
+    gap: 9px;
+    margin-bottom: 25px;
+  }
+
+  .solp-service-heading h2 {
+    font-size: 27px;
+    line-height: 1.25;
+    letter-spacing: -0.7px;
+  }
+
+  .solp-service-grid,
+  .solp-tech-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .solp-service-card,
+  .solp-tech-card,
+  .solp-business-section .solp-tech-card {
+    min-height: 0;
+    padding: 24px 22px;
+    border-radius: 13px;
+  }
+
+  .solp-service-card h3,
+  .solp-tech-card h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+    line-height: 1.35;
+  }
+
+  .solp-service-card p,
+  .solp-tech-card p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Service CTA */
+
+  .solp-services-cta {
+    padding: 58px 0;
+  }
+
+  .solp-services-cta-inner {
+    display: block;
+    padding: 27px 22px;
+  }
+
+  .solp-services-cta h2 {
+    font-size: 28px;
+  }
+
+  .solp-services-cta p {
+    font-size: 13px;
+  }
+
+  .solp-services-button {
+    width: 100%;
+    margin-top: 22px;
+  }
+
+  /* Technology section */
+
+  .solp-tech-section,
+  .solp-business-section {
+    padding: 55px 0 60px;
+  }
+
+  .solp-tech-heading,
+  .solp-business-heading {
+    gap: 9px;
+    margin-bottom: 28px;
+  }
+
+  .solp-tech-heading h2,
+  .solp-business-heading h2 {
+    font-size: 29px;
+    line-height: 1.25;
+    letter-spacing: -0.7px;
+  }
+
+  /* Marquee */
+
+  .solp-marquee-section {
+    padding: 65px 0 75px;
+  }
+
+  .solp-marquee-heading {
+    margin-bottom: 32px;
+    padding: 0 18px;
+  }
+
+  .solp-marquee-heading h2 {
+    font-size: 27px;
+    line-height: 1.3;
+    letter-spacing: -0.6px;
+  }
+
+  .solp-marquee-heading p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .solp-marquee-content {
+    gap: 25px;
+  }
+
+  .solp-marquee-content span {
+    font-size: 26px;
+  }
+
+  .solp-marquee-right,
+  .solp-marquee-left {
+    animation-duration: 25s;
+  }
+
+  .solp-marquee-link {
+    margin-top: 38px;
+    font-size: 12px;
+  }
+
+  /* Black CTA */
+
+  .solp-discovery {
+    padding: 62px 0;
+  }
+
+  .solp-discovery-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .solp-discovery-content h2 {
+    margin-bottom: 24px;
+    font-size: 29px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
+
+  .solp-discovery-button {
+    min-height: 54px;
+    padding: 0 22px;
+    font-size: 15px;
+  }
+
+  .solp-discovery-image {
+    height: 270px;
+    border-radius: 45% 10% 10% 45%;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE — 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .solp-service-heading h2 {
+    font-size: 24px;
+  }
+
+  .solp-tech-heading h2,
+  .solp-business-heading h2 {
+    font-size: 26px;
+  }
+
+  .solp-service-card,
+  .solp-tech-card {
+    padding: 21px 18px;
+  }
+
+  .solp-service-card h3,
+  .solp-tech-card h3 {
+    font-size: 19px;
+  }
+
+  .solp-service-card p,
+  .solp-tech-card p {
+    font-size: 13px;
+  }
+
+  .solp-discovery-content h2 {
+    font-size: 26px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .solutions-page *,
+  .solutions-page *::before,
+  .solutions-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .solp-marquee-content {
+    animation: none !important;
+  }
+}
+
+/* Only move icons above headings — preserve heading size */
+
+.solp-service-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 38px;
+}
+
+/* Icon only */
+.solp-service-heading-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+/* Keep original heading typography unchanged */
+.solp-service-heading h2 {
+  margin: 0;
+  /* No font-size, font-weight or line-height changes */
+}
+
+@media (max-width: 600px) {
+  .solp-service-heading {
+    gap: 10px;
+    margin-bottom: 27px;
+  }
+}
+.technology-logo img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+}

@@ -48,6 +48,7 @@ import Solutions from "./Solutions";
 
 import Outsourcing from "./Outsourcing";
 import About from "./About";
+import Technologies from "./Technologies";
 
 /* ---------------- NAVIGATION ---------------- */
 
@@ -891,131 +892,6 @@ function Standard({ tag, title, accent, desc, items, heading, sub }) {
 
 /* ---------------- TECHNOLOGIES PAGE ---------------- */
 
-function Technologies() {
-
-  const [query, setQuery] = useState("");
-
-  const [category, setCategory] = useState("All");
-
-  const list = Object.entries(tech)
-
-    .flatMap(([cat, names]) => names.map((name) => ({ cat, name })))
-
-    .filter(
-
-      (item) =>
-
-        (category === "All" || category === item.cat) &&
-
-        item.name.toLowerCase().includes(query.toLowerCase())
-
-    );
-
-  return (
-
-    <>
-
-      <Hero
-
-        tag="TECHNOLOGY EXPERTISE"
-
-        title="The right stack. "
-
-        accent="For what comes next."
-
-        desc="We work across modern languages, frameworks, cloud platforms, data tools, and AI technologies—choosing the right tools for the product, not chasing trends."
-
-      />
-
-      <section className="soft">
-
-        <Intro
-
-          tag="EXPLORE OUR STACK"
-
-          title="Technology should serve the outcome."
-
-          desc="Search our technology landscape or browse by discipline. Final technology choices depend on project needs and confirmed team expertise."
-
-        />
-
-        <div className="controls">
-
-          <div className="search">
-
-            <Search size={18} />
-
-            <input
-
-              value={query}
-
-              onChange={(event) => setQuery(event.target.value)}
-
-              placeholder="Search technologies..."
-
-              aria-label="Search technologies"
-
-            />
-
-          </div>
-
-          <div className="filters">
-
-            {["All", ...Object.keys(tech)].map((name) => (
-
-              <button
-
-                type="button"
-
-                key={name}
-
-                className={category === name ? "active" : ""}
-
-                onClick={() => setCategory(name)}
-
-              >
-
-                {name}
-
-              </button>
-
-            ))}
-
-          </div>
-
-        </div>
-
-        <div className="techgrid">
-
-          {list.map(({ name, cat }) => (
-
-            <article key={`${cat}-${name}`}>
-
-              <b>{name.slice(0, 2).toUpperCase()}</b>
-
-              <div>
-
-                <strong>{name}</strong>
-
-                <small>{cat}</small>
-
-              </div>
-
-            </article>
-
-          ))}
-
-        </div>
-
-        <p className="count">{list.length} technologies</p>
-
-      </section>
-
-    </>
-
-  );
-
-}
 
 /* ---------------- CONTACT PAGE ---------------- */
 

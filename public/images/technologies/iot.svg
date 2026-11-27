@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <text x="100" y="40"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="25"
+        font-weight="800"
+        letter-spacing="-0.7"
+        fill="#A020E0">Internet of</text>
+  <text x="100" y="70"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="25"
+        font-weight="800"
+        letter-spacing="-0.7"
+        fill="#A020E0">Things</text>
+</svg>

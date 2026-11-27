@@ -1,0 +1,9 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 90">
+  <g fill="none" stroke="#F26322" stroke-width="6" stroke-linejoin="miter">
+    <path d="M15 27 L39 13 L63 27 L63 65 L51 72 L51 34 L39 27 L27 34 L27 72 L15 65 Z"/>
+  </g>
+  <text x="72" y="57" font-family="Arial, sans-serif"
+        font-size="31" font-weight="400" fill="#666666">Magento</text>
+  <circle cx="205" cy="31" r="2" fill="#666666"/>
+</svg>
